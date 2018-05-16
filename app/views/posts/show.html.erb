@@ -1,0 +1,8 @@
+<h1 class="title"><%= @post.title %></h1>
+<p>
+<%=@post.content %> 
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %>
+<%= link_to 'Delete', @post, method: :delete %>
+<%= link_to 'Back to the main page', root_path %>

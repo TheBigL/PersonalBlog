@@ -1,0 +1,15 @@
+<%= form_for(post) do |f| %>
+    <div class="field">       
+        <%= f.label :title%>
+        <%= f.text_field :title%><br>
+    </div>
+
+    <div class="field">    
+        <%= f.label :content%>
+        <%= f.text_area :content%>
+    </div>    
+
+    <div class="is-primary">
+        <%= f.submit "Submit!" %>
+    </div>
+<% end %>

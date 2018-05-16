@@ -1,0 +1,11 @@
+<h1 class="title has-text-centered">Leban's Blog!</h1>
+
+<% @posts.each do |post|  %>
+ <div class="container">
+    <h2><%= link_to post.title, "/posts/#{post.id}" %></h2>
+    <p><%= post.content %></p><br/>
+    <link_to 'Destroy', 
+ </div>
+<% end %>    
+
+<%= link_to 'New Page', new_post_path%>
