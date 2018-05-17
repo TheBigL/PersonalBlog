@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    
+    before_action set_post, except [:index, :new, :create]
     def index
      @posts = Post.all
     end
@@ -9,21 +9,21 @@ class ApplicationController < ActionController::Base
     end
 
     def show
-     @post = Post.friendly.find(params[:id])
+     
     end
 
     def edit
-     @post = Post.friendly.find(params[:id])
+
     end
 
     def update
-     @post = Post.friendly.find(params[:id])
+
      @post.update(post_params)
      redirect_to @post
     end
 
     def destroy
-     @post = Post.friendly.find(params[:id])
+
      @post.destroy
      redirect_to action: "index"
     end
@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
 
 
     def create
-        @post = Post.new(post_params)
+
 
         respond_to do |format|
             if @post.save
@@ -49,4 +49,8 @@ class ApplicationController < ActionController::Base
     def post_params
         params.require(:post).permit(:title, :content)
     end
+
+    de
+
+    end    
 end
