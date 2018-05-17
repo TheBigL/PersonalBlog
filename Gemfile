@@ -44,6 +44,15 @@ gem 'friendly_id', '~> 5.1.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Adds likes to comments and blog posts.
+gem 'acts_as_votable', '~> 0.11.1'
+
+#Devise - Authnetication Gem
+gem 'devise', '~> 4.4', '>= 4.4.3'
+
+#Pundit - Authorization Gem
+gem 'pundit', '~> 1.1'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
