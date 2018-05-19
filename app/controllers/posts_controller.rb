@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
-    before_action :authenticate_user!
+    before_action :authenticate_user!, except: [:index, :show]
     def index
      @posts = Post.all
     end
 
     def new
-     @post = Post.new
+     @post = current_user.posts.build
     end
 
     def show
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
 
 
     def create
-        @post = Post.new(post_params)
+        @post = current_user.posts.build(post_params)
 
         respond_to do |format|
             if @post.save

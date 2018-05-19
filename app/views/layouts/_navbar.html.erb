@@ -1,5 +1,20 @@
-<nav class="breadcrumb" aria-label="breadcrumbs">
-<h1 class="title is-1">Leban Mohamed</h1>
-<%= link_to 'Main Blog', root_index %>
+  
 
+<nav class="navbar-menu" aria-label="breadcrumbs">
+
+<ul class="level">
+
+<li class="level-item">
+<%= link_to 'Main Blog', '/posts' %>
+</li>
+
+<li class="level-item">
+<%= link_to 'Sign up',  new_user_registration_path %>
+</li>
+
+<li class="level-item">
+<%= link_to 'Sign in',  new_user_session_path %>
+</li>
+
+</ul> 
 </nav>

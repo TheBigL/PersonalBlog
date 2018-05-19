@@ -15,3 +15,31 @@
  */
  @import "bulma";
  @import "font-awesome";
+ @import "home.scss";
+ @import "posts.scss";
+ @import "users.scss";
+
+ $primary-color: rgb(221, 24, 24);
+ $secondary-color: rgb(38, 212, 212);
+
+ .footer, .navbar-menu, .header
+ {
+     background-color: $primary-color;
+     width: 100%;
+ }
+
+ .header
+ {
+     text-align: center;
+ }
+
+ .navbar-menu
+ {
+     background-color: $secondary-color;
+ }
+
+ .footer
+ {
+     position: fixed;
+     bottom: 0;
+ }
