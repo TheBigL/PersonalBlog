@@ -1,7 +1,9 @@
 
 <h1 class="title"><%= @post.title %></h1>
+<h2>Authored by: <%= @post.user.username%></h2>
 <p>
 <%=@post.content %> 
+
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %>

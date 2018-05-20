@@ -15,14 +15,19 @@
  */
  @import "bulma";
  @import "font-awesome";
+ @import "personalize.css";
  @import "home.scss";
  @import "posts.scss";
  @import "users.scss";
 
  $primary-color: rgb(221, 24, 24);
  $secondary-color: rgb(38, 212, 212);
+ $laptop-width: 1200px;
 
- .footer, .navbar-menu, .header
+
+
+
+ .footer,  .header
  {
      background-color: $primary-color;
      width: 100%;
@@ -33,13 +38,30 @@
      text-align: center;
  }
 
- .navbar-menu
+ nav
  {
      background-color: $secondary-color;
  }
 
  .footer
  {
-     position: fixed;
+     
      bottom: 0;
+     position: unset;
+     clear: both;
+     padding-bottom: 13rem;
+
  }
+
+body
+{
+    overflow-y: visible;
+}
+
+@media screen and (min-width: $laptop-width)
+{
+    .level
+    {
+        height: 100px;
+    }
+}

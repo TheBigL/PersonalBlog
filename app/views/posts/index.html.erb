@@ -3,6 +3,7 @@
 <% @posts.each do |post|  %>
  <div class="container">
     <h2><%= link_to post.title, "/posts/#{post.id}" %></h2>
+    <h3>Authored by: <%= post.user.username%></h3>
     <p><%= post.content %></p><br/>
  </div>
 <% end %>
