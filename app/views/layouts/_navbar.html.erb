@@ -5,6 +5,10 @@
 <ul class="level">
 
 <li class="level-item">
+Welcome, <%= current_user.username %>
+</end>
+
+<li class="level-item">
 <%= link_to 'Main Blog', '/posts' %>
 </li>
 
@@ -17,12 +21,20 @@
 <li class="level-item">
 <% if !user_signed_in? %>
 <%= link_to 'Sign in',  new_user_session_path %>
+<% else %>
+<%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
 <% end %>
 </li>
 
 <li class="level-item">
 <% if user_signed_in? %>
 <%= link_to 'Update User Info', edit_registration_path(current_user)   %>
+<% end %>
+</li>
+
+<li class="level-item">
+<% if user_signed_in? %>
+
 <% end %>
 </li>
 
