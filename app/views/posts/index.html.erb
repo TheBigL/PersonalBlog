@@ -1,14 +1,21 @@
 <h3 class="title has-text-centered">Leban's Blog!</h1>
 
+
+<div class="posts-container">
+
 <% @posts.each do |post|  %>
- <div class="container">
+ <div class="post-container">
     <h2><%= link_to post.title, "/posts/#{post.id}" %></h2>
     <h3>Authored by: <%= post.user.username%></h3>
     <p><%= post.content %></p><br/>
  </div>
 <% end %>
 
-
-
+<div class="newpage">
 <%= link_to 'New Page', new_post_path%>
+</div>
+
+</div>
+
+
 

@@ -2,10 +2,44 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $color-primary: rgb(236, 44, 44);
+$secondary-color: #3cdada;
+$third-color: #cec4c4;
+
+
+.posts-container
+{
+    width: 90%;
+    margin: 0 auto;
+
+}
+
+.post-container
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #cec4c4;
+    border-radius: 5px;
+    margin-bottom: 60px;
+    transition: all .5s ease;
+    overflow: hidden;
+
+
+}
+
+.newpage
+{
+    background-color: $secondary-color;
+    width: 5%;
+    margin-bottom: 3em;
+}
+
 
 
 .footer
 {
     width: 100%;
+
 }
 

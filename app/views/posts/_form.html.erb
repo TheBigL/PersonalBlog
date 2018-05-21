@@ -4,10 +4,20 @@
         <%= f.text_field :title%><br>
     </div>
 
+    <div class="field">       
+        <%= f.label :header_image%>
+        <%= f.file_field :header_image%><br>
+    </div>
+
     <div class="field">    
         <%= f.label :content%>
         <%= f.text_area :content%>
-    </div>    
+    </div>
+    
+    <div class="field">       
+        <%= f.label :uploads%>
+        <%= f.file_field :uploads, multiple: true %><br>
+    </div>
 
     <div class="is-primary">
         <%= f.submit "Submit!" %>

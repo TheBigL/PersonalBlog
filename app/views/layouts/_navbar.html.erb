@@ -9,11 +9,21 @@
 </li>
 
 <li class="level-item">
+<% if !user_signed_in? %>
 <%= link_to 'Sign up',  new_user_registration_path %>
+<% end %>
 </li>
 
 <li class="level-item">
+<% if !user_signed_in? %>
 <%= link_to 'Sign in',  new_user_session_path %>
+<% end %>
+</li>
+
+<li class="level-item">
+<% if user_signed_in? %>
+<%= link_to 'Update User Info', edit_registration_path(current_user)   %>
+<% end %>
 </li>
 
 </ul> 

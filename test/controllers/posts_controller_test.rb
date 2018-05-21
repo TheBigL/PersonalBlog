@@ -5,7 +5,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   #   assert true
   # end
   
-
+  # Test the
 
 
 end
