@@ -4,13 +4,18 @@
 <div class="posts-container">
 
 <% @posts.each do |post|  %>
- <div class="post-container">
+    <div class="post-container">
     <h2><%= link_to post.title, "/posts/#{post.id}" %></h2>
     <div class="author">
     <h3>Authored by: <%= post.user.username%></h3>
     </div>
     <p><%=raw post.content %></p><br/>
- </div>
+    </div>
+
+
+
+
+ 
 <% end %>
 
 <div class="newpage">

@@ -22,6 +22,7 @@
 
  $primary-color: rgb(221, 24, 24);
  $secondary-color: rgb(38, 212, 212);
+ 
  $laptop-width: 1200px;
 
 
@@ -50,12 +51,24 @@
      position: unset;
      clear: both;
      padding-bottom: 13rem;
+     
 
  }
 
 body
 {
     overflow-y: visible;
+}
+
+.footer .fa
+{
+    color: #36d6d6;
+    transition: color 150ms linear 50ms;
+}
+
+.fa:hover
+{
+    color: #5336d6;
 }
 
 @media screen and (min-width: $laptop-width)

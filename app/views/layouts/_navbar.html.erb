@@ -28,7 +28,7 @@ Welcome, <%= current_user.username %>
 
 <li class="level-item">
 <% if user_signed_in? %>
-<%= link_to 'Update User Info', edit_registration_path(current_user)   %>
+<%= link_to 'Update User Info',  edit_user_registration_path(current_user)   %>
 <% end %>
 </li>
 
