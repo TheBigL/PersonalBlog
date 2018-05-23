@@ -40,6 +40,12 @@ gem 'simple_form', '~> 4.0.0'
 # FriendlyID
 gem 'friendly_id', '~> 5.1.0'
 
+#Rolify - A gem to assists with assigning roles in Authorization
+gem 'rolify', '~> 5.2'
+
+#Role Model - Stores models and adds conditional behaviour on top of it.
+gem 'role_model', '~> 0.8.2'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

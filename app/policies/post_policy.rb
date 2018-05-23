@@ -9,15 +9,15 @@ class PostPolicy < ApplicationPolicy
   end
 
   def create?
-    user.present? && user.admin? || user.contributor?
+    return true if user.present? && user.admin? || user.contributor?
   end
 
   def update?
-    user.present? && user.admin? || user.contributor?
+    return true if user.present? && user.admin? || user.contributor?
   end
 
   def destroy?
-    user.present? && user.admin? || user.contributor?
+    return true if user.present? && user.admin? || user.contributor?
   end
 
 end
