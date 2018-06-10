@@ -5,7 +5,9 @@
 <ul class="level">
 
 <li class="level-item">
+<% if user_signed_in? %>
 Welcome, <%= current_user.username %>
+<% end %>
 </end>
 
 <li class="level-item">
@@ -32,11 +34,8 @@ Welcome, <%= current_user.username %>
 <% end %>
 </li>
 
-<li class="level-item">
-<% if user_signed_in? %>
 
-<% end %>
-</li>
+
 
 </ul> 
 </nav>

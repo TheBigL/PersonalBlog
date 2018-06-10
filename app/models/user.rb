@@ -1,27 +1,22 @@
 class User < ApplicationRecord
-  include RoleModel
-  
+  enum roles: [:admin, :contributor, :registered, :guest, :banned]
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
   has_many :posts
   has_one_attached :avatar
+  
+  #before_create :set_default_role
+  #belongs_to :role
 
-  after_initialize :set_default_role, :if => :new_record?
+  roles_attribute :roles_mask
+  include RoleModel
+  roles: :admin, :contributor, :registered, :guest, :banned
+  
+  #after_create :assign_default_role
+
   def set_default_role
-    self.role ||= :user
+     self.role ||= :user
   end
-
-  def admin?
-    self.role == "admin"
-  end
-
-  def contributor?
-    self.role == "contributor"
-  end
-
-  def user?
-    self.role == "user"
-  end
-
+  
 end

@@ -20,4 +20,8 @@ class PostPolicy < ApplicationPolicy
     return true if user.present? && user.admin? || user.contributor?
   end
 
+  def cf_content
+    [ :Admin, :Contributor, :User, :Banned ]
+   end
+
 end

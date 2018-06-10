@@ -54,6 +54,7 @@ Rails.application.configure do
 
   #Development code for Devise. Will change to the actual line in production
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.delivery_method = :stmp
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
