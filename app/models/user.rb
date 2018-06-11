@@ -9,14 +9,13 @@ class User < ApplicationRecord
   #before_create :set_default_role
   #belongs_to :role
 
-  roles_attribute :roles_mask
+  #roles_attribute :roles_mask
   include RoleModel
-  roles: :admin, :contributor, :registered, :guest, :banned
   
   #after_create :assign_default_role
 
   def set_default_role
      self.role ||= :user
   end
-  
+
 end
