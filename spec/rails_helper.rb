@@ -46,6 +46,7 @@ RSpec.configure do |config|
   #       # ...
   #     end
   #
+  config.include FactoryBot::Syntax::Methods
   config.include Features::SessionHelpers, type: :feature
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
