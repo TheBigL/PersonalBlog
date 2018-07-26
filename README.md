@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby Version: 2.5.1
 
-Things you may want to cover:
+Gems used:
 
-* Ruby version
+Devise (Authentication) 
 
-* System dependencies
+CKEditor (Enhance my blog posts)
 
-* Configuration
+Act As Votable (Voting feature)
 
-* Database creation
+Better Errors (Used to track errors)
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Bootstrap (CSS Framework)

@@ -1,11 +1,23 @@
 class PostPolicy < ApplicationPolicy
   
 
-  attr_reader :current_user, :model
+  
 
-  def initialize_user(current_user, model)
-   @current_user = current_user
-   @user = model
+  class PolicyScope < Scope
+
+    attr_reader :user, :record
+
+    def initialize_user(user, record)
+      @user = user
+      @post = record
+    end
+
+    def resolve
+      if user.role == "admin"
+        scope.all
+      end
+    end
+    
   end
 
   def show?
@@ -17,19 +29,15 @@ class PostPolicy < ApplicationPolicy
   end
 
   def create?
-    return true if @current_user.present? && @current_user.role == "admin"? || @current_user.role == "contributor"?
+    record.user.role == "admin"? && record.user == @user?
   end
 
   def update?
-    return true if @current_user.present? && @current_user.role == "admin"? || @current_user.role == "contributor"?
+    @user.present? && @user.role == "admin"? || @user.role == "contributor"?
   end
 
   def destroy?
-    return true if user.present? && user.admin? || user.contributor?
+    @user.present? && @user.admin? || @user.role == "contributor"
   end
-
-  def cf_content
-    [ :Admin, :Contributor, :User, :Banned ]
-   end
 
 end

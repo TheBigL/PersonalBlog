@@ -2,8 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $color-primary: rgb(236, 44, 44);
-$secondary-color: #8691ee;
-$transition-color: #86d4ee;
+$secondary-color: hsl(232, 35%, 92%);
+$transition-color: #bce7f1;
 $border-color: #2626e2;
 $new-page-button: #52e652;
 
@@ -14,6 +14,12 @@ $new-page-button: #52e652;
     width: 90%;
     margin: 0 auto;
 
+}
+
+.post-title
+{
+    font-size: 2.5rem;
+    border-bottom: 0.3rem solid $border-color;
 }
 
 .post-container
@@ -40,9 +46,10 @@ $new-page-button: #52e652;
 
 .newpage
 {
-    background-color: $secondary-color;
+    background-color: $new-page-button;
     width: 5%;
     margin-bottom: 3em;
+    line-height: 2%;
 }
 
 .newpage:hover

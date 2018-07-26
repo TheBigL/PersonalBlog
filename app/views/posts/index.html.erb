@@ -5,16 +5,21 @@
 
 <% @posts.each do |post|  %>
     <div class="post-container">
-    <h2><%= link_to post.title, "/posts/#{post.id}" %></h2>
+    <h2 class="post-title"><%= link_to post.title, "/posts/#{post.id}" %></h2>
     <div class="author">
     <h3>Authored by: <%= post.user.username%></h3>
+    <b>posted <%=time_ago_in_words(post.created_at)%> ago</b><br/>
+    <% if post.updated_at > post.created_at %>
+    <b>updated <%=time_ago_in_words(post.updated_at)%> ago</b>
+    <% end %>
+    
     </div>
     <p><%=raw post.content %></p><br/>
     </div> 
 <% end %>
 </div>
 
-<%if user_signed_in? %>
+<%if user_signed_in? && user.role == "" %>
 <div class="newpage">
 <%= link_to 'New Page', new_post_path%>
 </div>

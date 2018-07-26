@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
     def new
      @post = current_user.posts.build
+     
     # authorize @post
     end
 
@@ -61,8 +62,8 @@ class PostsController < ApplicationController
         params.require(:post).permit(:title, :content, :header_image, uploads: [])
     end
 
-    def set_post
-        @post = Post.friendly.find(params[:id])
+    def set_post  
+        @post = Post.friendly.find(params[:id]).order(created_at: :asc)
     #    authorize @post
     end
 end
