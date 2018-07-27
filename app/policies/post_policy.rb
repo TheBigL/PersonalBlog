@@ -11,13 +11,13 @@ class PostPolicy < ApplicationPolicy
 
     attr_reader :user, :record
 
-    def initialize_user(user, record)
-      @user = user
+    def initialize_user(current_user, record)
+      @user = current_user
       @post = record
     end
 
     def resolve
-      if user.role == "admin"
+      if @user.role == "admin"
         scope.all
       end
     end
