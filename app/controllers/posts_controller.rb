@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
     before_action :authenticate_user!, except: [:index, :show]
     def index
-     @posts = Post.all
+     @posts = Post.all.order(created_at: :desc)
     # authorize @posts
     end
 
@@ -63,7 +63,7 @@ class PostsController < ApplicationController
     end
 
     def set_post  
-        @post = Post.friendly.find(params[:id]).order(created_at: :asc)
+        @post = Post.friendly.find(params[:id])
     #    authorize @post
     end
 end

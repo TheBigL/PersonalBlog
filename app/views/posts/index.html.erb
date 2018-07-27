@@ -19,7 +19,7 @@
 <% end %>
 </div>
 
-<%if user_signed_in? && user.role == "" %>
+<%if user_signed_in? && current_user.role == "admin" %>
 <div class="newpage">
 <%= link_to 'New Page', new_post_path%>
 </div>
