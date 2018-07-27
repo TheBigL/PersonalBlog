@@ -1,9 +1,13 @@
 class PostPolicy < ApplicationPolicy
   
+  
 
   
 
   class PolicyScope < Scope
+    include Pundit
+    rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+    
 
     attr_reader :user, :record
 
@@ -37,7 +41,13 @@ class PostPolicy < ApplicationPolicy
   end
 
   def destroy?
-    @user.present? && @user.admin? || @user.role == "contributor"
+    @user.present? && @user.admin? || @post.user_id == @user.user_id?
+  end
+
+  private
+
+  def user_not_authorized
+    flash[:alert] = "Can't let you do that, " + @user.username + "!"
   end
 
 end

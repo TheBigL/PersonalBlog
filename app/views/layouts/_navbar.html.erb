@@ -33,9 +33,10 @@ Welcome, <%= current_user.username %>
 <%= link_to 'Update User Info',  edit_user_registration_path(current_user)   %>
 <% end %>
 </li>
+
 <% if current_user.role == "admin"%>
 <li class="level-item">
-
+  Comming Soon...
 </li>
 <% end %>
 
