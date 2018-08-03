@@ -14,11 +14,11 @@ Welcome, <%= current_user.username %>
 <%= link_to 'Main Blog', '/posts' %>
 </li>
 
-<li class="level-item">
 <% if !user_signed_in? %>
+<li class="level-item">
 <%= link_to 'Sign up',  new_user_registration_path %>
-<% end %>
 </li>
+<% end %>
 
 <li class="level-item">
 <% if !user_signed_in? %>
@@ -36,7 +36,7 @@ Welcome, <%= current_user.username %>
 
 <% if current_user.role == "admin"%>
 <li class="level-item">
-  Comming Soon...
+  Coming Soon...
 </li>
 <% end %>
 

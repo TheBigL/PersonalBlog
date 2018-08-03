@@ -3,14 +3,14 @@ class PostsController < ApplicationController
 
     before_action :authenticate_user!, except: [:index, :show]
     def index
-     @posts = Post.all.order(created_at: :desc)
-    # authorize @posts
+     @posts = Post.order(created_at: :desc).page(params[:page]).per(10)
+     #authorize @posts
     end
 
     def new
      @post = current_user.posts.build
      
-    # authorize @post
+     #authorize @post
     end
 
     def show
@@ -69,6 +69,6 @@ class PostsController < ApplicationController
     #    authorize @post
     end
     
-
-
 end
+
+

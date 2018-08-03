@@ -20,8 +20,9 @@
  @import "posts.scss";
  @import "users.scss";
 
- $primary-color: rgb(221, 24, 24);
- $secondary-color: rgb(38, 212, 212);
+ $primary-color: #ec1111;
+ $secondary-color: #1e88e5;
+ $transition-color: #4dabf5;
  
  $laptop-width: 1200px;
 
@@ -39,9 +40,27 @@
      text-align: center;
  }
 
- nav
+ .level
  {
-     background-color: $secondary-color;
+     background-color: #5959e6;
+ }
+
+ .level-item
+ {
+     background-color: #fff;
+     margin: 0.5rem;
+ }
+
+ .level-item:any-link + .level-item
+ {
+     color: #fff;
+ }
+
+ .level > .level-item:hover
+ {
+    background-color: $transition-color; 
+    color: #fff;
+    animation-delay: 500ms;
  }
 
  .footer
@@ -83,3 +102,5 @@ body
         height: 100px;
     }
 }
+
+
