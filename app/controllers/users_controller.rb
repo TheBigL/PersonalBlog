@@ -9,5 +9,15 @@ class UsersController < ApplicationController
 
     end
 
+    def update
+        @user = User.find(params[:id])
+    end
+
+
+    private 
+    def set_post
+        @user = User.find(params[:id])
+    end
+
 
 end

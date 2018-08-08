@@ -5,6 +5,7 @@ class Post < ApplicationRecord
  belongs_to :user
  has_one_attached :header_image
  has_many_attached :uploads
+ has_many :comments
  paginates_per 10
  max_paginates_per 25
 end
