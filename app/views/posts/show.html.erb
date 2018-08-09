@@ -8,19 +8,25 @@
 <div class="comments">
     <h3>Comments</h3>
     <%if  @post.comments.count == 0%>
-    <strong>There are not comments on this post. Feel free to send one!</strong>
+    <strong>There are no comments on this post. Feel free to send one!</strong>
     <% else %>
     <% @post.comments.each do | comment |%>
         <strong><%= @comment.user.username =%> says:</strong>
         <%=raw @comment.content =%>
-    <% end %>   
 
-
-
-    
     <%if !user_signed_in? %>
         <strong>Yo, if you wanna comment on my site, either <%= link_to 'Sign up',  new_user_registration_path %> or <%= link_to 'Log in',  new_user_session_path %></strong>
     <% end %>
+
+    <%if user_signed_in? %>
+        <%= render partial: "comments/form", locals: {comment: @post.comments.new} %>
+       
+    <% end %>   
+    
+
+
+    
+
 
 
 </div>

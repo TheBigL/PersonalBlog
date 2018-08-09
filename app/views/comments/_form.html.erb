@@ -1,0 +1,11 @@
+<%= form_for [@post, comment] do |f| %>
+  
+    <div class="field">
+      <%= f.label :content, "Comment" %>
+      <%= f.cktext_area :content %>
+    </div>
+  
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
