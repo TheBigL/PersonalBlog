@@ -34,7 +34,7 @@ Welcome, <%= current_user.username %>
 <% end %>
 </li>
 
-<% if current_user.role == "admin"%>
+<% if user_signed_in? %>
 <li class="level-item">
   Coming Soon...
 </li>
