@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     def destroy
-        @user = User.find(params[:id])
+        set_user
         @user.destroy
     
         if @user.destroy
@@ -15,9 +15,10 @@ class UsersController < ApplicationController
 
 
     private 
-    def set_post
+    def set_user
         @user = User.find(params[:id])
     end
+
 
 
 end

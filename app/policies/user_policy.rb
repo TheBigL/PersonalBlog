@@ -20,8 +20,14 @@ class UserPolicy < ApplicationPolicy
     end
 
     def destroy?
-      return false if @user.admin? || @current_user = @user
-      @current_user.admin?
+      
+      if @user = @current_user
+        flash[:alert] = "You cannot delete yourself!"
+      end
+
+      if @user.admin
+        flash[:alert] = "You cannot delete an admin!"
+      end
     end
 
     private
