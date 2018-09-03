@@ -12,21 +12,19 @@
     <% if post.updated_at > post.created_at %>
     <b>Updated <%=time_ago_in_words(post.updated_at)%> ago</b>
     <% end %>
-    
+
     </div>
     <p><%=raw post.content %></p><br/>
-    </div> 
+    </div>
 <% end %>
 </div>
 <%= paginate @posts %>
 
 <%if user_signed_in? && current_user.role == "admin" %>
 <div class="newpage">
-<%= link_to 'New Page', new_post_path%>
+
+<%= link_to new_post_path, title: "Add a new blog post"  do%>
+  <i class="fa fa-plus-circle fa-3x"></i>
+  <% end %>
 </div>
 <% end %>
-
-
-
-
-

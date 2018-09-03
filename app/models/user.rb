@@ -6,17 +6,12 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
   has_one_attached :avatar
-  
-  #before_create :set_default_role
-  #belongs_to :role
+  before_create :set_default_role
 
-  #roles_attribute :roles_mask
-  include RoleModel
-  
-  #after_create :assign_default_role
+
 
   def set_default_role
-     self.role ||= :user
+     self.role = "registered"
   end
 
 end
