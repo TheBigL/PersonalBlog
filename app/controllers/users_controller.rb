@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
+before_filter :authenticate_user!
+after_action :verify_authorized
+
     def destroy
-        set_user
+        user = User.find(params[:id])
+
         @user.destroy
-    
+
         if @user.destroy
             redirect_to root_url, notice: "The user has been deleted..."
         end
@@ -14,7 +18,7 @@ class UsersController < ApplicationController
     end
 
 
-    private 
+    private
     def set_user
         @user = User.find(params[:id])
     end

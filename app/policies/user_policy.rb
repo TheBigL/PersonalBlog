@@ -10,17 +10,23 @@ class UserPolicy < ApplicationPolicy
      @current_user = current_user
      @user = model
     end
-   
+
+    def show?
+      @current_user == @user? or @current_user.role = "admin"?
+    end
+
     def index?
-     @current_user.admin?
+     @current_user.role == "admin"?
     end
 
     def update?
-      @current_user.admin?
+      @current_user.role = "admin"?
     end
 
     def destroy?
-      
+
+      user = User.find(params[:id])
+      @current_user.role == "admin"?
       if @user = @current_user
         flash[:alert] = "You cannot delete yourself!"
       end
@@ -28,11 +34,15 @@ class UserPolicy < ApplicationPolicy
       if @user.admin
         flash[:alert] = "You cannot delete an admin!"
       end
+      user.destroy
+      redirect_to users_path, :notice => "User has been deleted"
+
+
     end
 
     private
     def user_not_authorized
-      flash[:alert] = "You cannot access this part of this site. Admins only!"
+      flash[:alert] = "You cannot access this part of this site. Only Admins can access this site!"
     end
 
 

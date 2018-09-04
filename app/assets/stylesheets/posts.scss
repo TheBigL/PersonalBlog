@@ -4,7 +4,7 @@
 $color-primary: #ff1744;
 $secondary-color: #1e88e5;
 $border-color: #2626e2;
-$new-page-button: #52e652;
+$new-page-button: #00FF7F;
 
 
 
@@ -46,16 +46,13 @@ nav > .level
 
 .newpage
 {
-    background-color: $new-page-button;
-    width: 5%;
+    color: $new-page-button;
+    width: 7%;
     margin-bottom: 3em;
-    line-height: 2%;
+    line-height: 7.5%;
 }
 
-.newpage:hover
-{
-    background-color: #7eff7e;
-}
+
 
 .author
 {
@@ -71,8 +68,7 @@ nav > .level
 
 .newpage
 {
-    color: #000;
-    background-color:$new-page-button;
+    color: #7effe7e;
 }
 
 .thumpup
@@ -90,4 +86,3 @@ nav > .level
 {
     width: 100%;
 }
-

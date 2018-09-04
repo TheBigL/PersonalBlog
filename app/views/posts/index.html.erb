@@ -21,10 +21,9 @@
 <%= paginate @posts %>
 
 <%if user_signed_in? && current_user.role == "admin" %>
-<div class="newpage">
+
 
 <%= link_to new_post_path, title: "Add a new blog post"  do%>
-  <i class="fa fa-plus-circle fa-3x"></i>
-  <% end %>
-</div>
+  <i class="fa fa-plus-circle fa-3x newpage"></i>
+<% end %>
 <% end %>
