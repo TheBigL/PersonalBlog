@@ -2,9 +2,14 @@ class UsersController < ApplicationController
 before_filter :authenticate_user!
 after_action :verify_authorized
 
+    def show
+      @user = User.all
+      authorize User
+    end
+
     def destroy
         user = User.find(params[:id])
-
+        authorize user
         @user.destroy
 
         if @user.destroy
@@ -15,6 +20,7 @@ after_action :verify_authorized
 
     def update
         @user = User.find(params[:id])
+        authorize user
     end
 
 

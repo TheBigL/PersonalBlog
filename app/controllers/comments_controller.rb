@@ -19,8 +19,8 @@ class CommentsController < ApplicationController
         set_comment
         @comment.destroy
         redirect_to @post
-
     end
+    
     private
     def comment_params
         params.require(:comment).permit(:content)
