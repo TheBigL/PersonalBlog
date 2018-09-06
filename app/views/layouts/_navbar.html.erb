@@ -1,4 +1,4 @@
-  
+
 
 <nav class="navbar-menu" aria-label="breadcrumbs">
 
@@ -36,12 +36,20 @@ Welcome, <%= current_user.username %>
 
 <% if user_signed_in? %>
 <li class="level-item">
-  Coming Soon...
+
+</li>
+<% end %>
+
+<% if user_signed_in? && current_user.role == "admin" %>
+<li class="level-item">
+  <%= link_to 'Users List', users_url %>
 </li>
 <% end %>
 
 
 
 
-</ul> 
+
+
+</ul>
 </nav>

@@ -1,11 +1,17 @@
 class UsersController < ApplicationController
-before_filter :authenticate_user!
+before_action :authenticate_user!
 after_action :verify_authorized
 
-    def show
-      @user = User.all
-      authorize User
-    end
+
+  def index
+    @user = User.all
+    authorize User
+  end
+
+  def show
+    @user = User.find(params[:id])
+    authorize @user
+  end
 
     def destroy
         user = User.find(params[:id])

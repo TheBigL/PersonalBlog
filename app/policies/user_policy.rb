@@ -12,7 +12,7 @@ class UserPolicy < ApplicationPolicy
     end
 
     def show?
-      @current_user == @user? or @current_user.role = "admin"?
+      @current_user.role == "admin"?
     end
 
     def index?
@@ -20,7 +20,7 @@ class UserPolicy < ApplicationPolicy
     end
 
     def update?
-      @current_user.role = "admin"?
+      @current_user.role == "admin"?
     end
 
     def destroy?

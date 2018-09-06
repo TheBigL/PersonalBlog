@@ -17,9 +17,12 @@ Rails.application.routes.draw do
   patch  '/comments/:id',      to: 'comments#update'
   delete '/comments/:id',      to: 'comments#destroy'
 
-resources :users
+  root "posts#index"
 
-root "posts#index"
+  get '/users', to: 'users#index', as: 'users'
+  get '/users/:id', to: 'users#show', as: 'user'
+  patch '/users/:id', to: 'users#update', as: 'edit_user'
+  delete '/users/:id', to: 'users#destroy'
 
 
 end
