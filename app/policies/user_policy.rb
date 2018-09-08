@@ -12,32 +12,22 @@ class UserPolicy < ApplicationPolicy
     end
 
     def show?
-      @current_user.role == "admin"?
+      @current_user.admin? || @current_user == @user?
     end
 
     def index?
-     @current_user.role == "admin"?
+     @current_user.admin?
     end
 
     def update?
-      @current_user.role == "admin"?
+      @current_user.admin?
     end
 
     def destroy?
-
       user = User.find(params[:id])
-      @current_user.role == "admin"?
-      if @user = @current_user
-        flash[:alert] = "You cannot delete yourself!"
-      end
-
-      if @user.admin
-        flash[:alert] = "You cannot delete an admin!"
-      end
+      return false if @current_user.role == "admin" and if @user == @current_user and if @user.role == "admin"
       user.destroy
       redirect_to users_path, :notice => "User has been deleted"
-
-
     end
 
     private
@@ -48,4 +38,5 @@ class UserPolicy < ApplicationPolicy
 
 
   end
+end
 end
