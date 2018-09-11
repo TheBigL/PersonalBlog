@@ -40,6 +40,9 @@ gem 'simple_form', '~> 4.0.0'
 # FriendlyID
 gem 'friendly_id', '~> 5.1.0'
 
+# ACME-CLIENT
+gem 'acme-client', '~> 2.0', '>= 2.0.1'
+
 #Rolify - A gem to assists with assigning roles in Authorization
 gem 'rolify', '~> 5.2'
 
@@ -88,9 +91,9 @@ group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
-  # Use the better errors gem to better locate stack trace errors. 
+  # Use the better errors gem to better locate stack trace errors.
   gem "better_errors"
-  #binding-of-caller 
+  #binding-of-caller
   gem 'binding_of_caller', '~> 0.8.0'
   # Guard is used to simplify running the server
   gem 'guard'

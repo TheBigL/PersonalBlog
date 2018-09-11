@@ -29,6 +29,10 @@ after_action :verify_authorized
         authorize user
     end
 
+    def destroy
+
+    end
+
 
     private
     def set_user
