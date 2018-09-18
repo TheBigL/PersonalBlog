@@ -49,6 +49,8 @@ gem 'rolify', '~> 5.2'
 #Role Model - Stores models and adds conditional behaviour on top of it.
 gem 'role_model', '~> 0.8.2'
 
+gem 'sassc', '~> 1.12', '>= 1.12.1'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
