@@ -43,11 +43,8 @@ gem 'friendly_id', '~> 5.1.0'
 # ACME-CLIENT
 gem 'acme-client', '~> 2.0', '>= 2.0.1'
 
-#Rolify - A gem to assists with assigning roles in Authorization
-gem 'rolify', '~> 5.2'
 
-#Role Model - Stores models and adds conditional behaviour on top of it.
-gem 'role_model', '~> 0.8.2'
+
 
 gem 'sassc', '~> 1.12', '>= 1.12.1'
 
