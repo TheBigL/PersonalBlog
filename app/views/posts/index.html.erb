@@ -20,7 +20,7 @@
 </div>
 <%= paginate @posts %>
 
-<%if user_signed_in? && current_user.role_id == 1 || current_user.role_id == 2 %>
+<%if user_signed_in? && current_user.username == "LebanMohamed"%>
 <%= link_to new_post_path, title: "Add a new blog post"  do%>
   <i class="fa fa-plus-circle fa-3x newpage"></i>
 <% end %>

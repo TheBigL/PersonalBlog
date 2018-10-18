@@ -8,9 +8,9 @@ class ApplicationController < ActionController::Base
     def about
 
     end
-  
+
     protected
-  
+
     def configure_permitted_parameters
       added_attrs = [ :username, :email, :password, :password_confirmation　]
       devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
@@ -23,5 +23,5 @@ class ApplicationController < ActionController::Base
       flash[:alert] = "You aren't authorized to go to that page. Contact Leban Mohamed through email at leban.mohamed@live.ca."
       redirect_to (request.referrer || root_path)
     end
-        
+
 end
