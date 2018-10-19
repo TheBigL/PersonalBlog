@@ -7,7 +7,6 @@ class User < ApplicationRecord
   belongs_to :roles
   has_one_attached :avatar
   before_create :set_default_role
-  attr_accessor :role_id
 
 
 
