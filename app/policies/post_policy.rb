@@ -1,13 +1,13 @@
 class PostPolicy < ApplicationPolicy
-  
-  
 
-  
+
+
+
 
   class PolicyScope < Scope
     include Pundit
     rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-    
+
 
     attr_reader :user, :record
 
@@ -17,11 +17,11 @@ class PostPolicy < ApplicationPolicy
     end
 
     def resolve
-      if @user.role == "admin"
+      if @user.role_id == 1
         scope.all
       end
     end
-    
+
   end
 
   def show?
@@ -33,7 +33,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def create?
-    record.user.role == "admin"? && record.user == @user?
+    @user.role_id == 1? && record.user == @user?
   end
 
   def update?

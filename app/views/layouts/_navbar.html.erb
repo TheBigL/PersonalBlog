@@ -20,27 +20,21 @@ Welcome, <%= current_user.username %>
 </li>
 <% end %>
 
-<li class="level-item">
 <% if !user_signed_in? %>
+<li class="level-item">
 <%= link_to 'Sign in',  new_user_session_path %>
 <% else %>
 <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
-<% end %>
 </li>
+<% end %>
 
-<li class="level-item">
 <% if user_signed_in? %>
+<li class="level-item">
 <%= link_to 'Update User Info',  edit_user_registration_path(current_user)   %>
-<% end %>
-</li>
-
-<% if user_signed_in? %>
-<li class="level-item">
-
 </li>
 <% end %>
 
-<% if user_signed_in? && current_user.username == "LebanMohamed" %>
+<% if user_signed_in? && current_user.role_id == 1%>
 <li class="level-item">
   <%= link_to 'Users List', users_url %>
 </li>
