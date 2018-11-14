@@ -37,11 +37,11 @@ class PostPolicy < ApplicationPolicy
   end
 
   def update?
-    @user.present? && @user.role == "admin"? || @user.role == "contributor"?
+    @user.present? && @user.role_id == 1? || @user.role_id == 2?
   end
 
   def destroy?
-    @user.present? && @user.admin? || @post.user_id == @user.user_id?
+    @user.present? && @user.role_id == 1? || @post.user_id == @user.user_id?
   end
 
   private

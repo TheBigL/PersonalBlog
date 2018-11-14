@@ -34,9 +34,17 @@
 
 <% end %>
 <% end %>
-<br>
-    <%= link_to 'Edit', edit_post_path(@post) %>
-    <%= link_to 'Delete', @post, method: :delete %>
-    <%= link_to 'Back to the main page', root_path %>
-    <% else %>
-    <%= link_to 'Back to the main page', root_path %>
+
+<%if user_signed_in? && current_user.role_id == 1 %>
+  <%= link_to 'Edit', edit_post_path(@post), title: 'Edit this post' do%>
+    <i class="fas fa-edit fa-3x">  </i>
+<% end %>
+<% end %>
+
+<%if user_signed_in? && current_user.role_id == 1 %>
+<%= link_to 'Delete', @post, method: :delete, title: 'Delete this post' do%>
+  <i class="fas fa-trash fa-3x"> </i>
+  <% end %>
+<% end %>
+
+<%= link_to 'Back to the main page', root_path %>

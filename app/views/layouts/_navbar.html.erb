@@ -3,9 +3,8 @@
 <nav class="navbar-menu" aria-label="breadcrumbs">
 
 <ul class="level">
-
-<li class="level-item">
 <% if user_signed_in? %>
+<li class="level-item">
 Welcome, <%= current_user.username %>
 <% end %>
 </end>
@@ -23,7 +22,9 @@ Welcome, <%= current_user.username %>
 <% if !user_signed_in? %>
 <li class="level-item">
 <%= link_to 'Sign in',  new_user_session_path %>
+</li>
 <% else %>
+<li class="level-item">
 <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
 </li>
 <% end %>

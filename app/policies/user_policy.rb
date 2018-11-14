@@ -12,15 +12,15 @@ class UserPolicy < ApplicationPolicy
     end
 
     def show?
-      current_user.role_id == 1? || @current_user == @user?
+      @current_user.role_id == 1? || @current_user == @user?
     end
 
     def index?
-     current_user.role_id == 1?
+     @current_user.role_id == 1?
     end
 
     def update?
-      current_user.role_id == 1?
+      @current_user.role_id == 1?
     end
 
     def destroy?
