@@ -5,6 +5,8 @@ $color-primary: #ff1744;
 $secondary-color: #1e88e5;
 $border-color: #2626e2;
 $new-page-button: #00FF7F;
+$edit-page-button: #FAFA67;
+$delete-page-button: #000000;
 
 
 
@@ -48,10 +50,31 @@ nav > .level
 {
     color: $new-page-button;
     width: 7%;
-    margin-bottom: 3em;
+    margin-bottom: 5em;
     line-height: 7.5%;
 }
 
+.functions
+{
+  width: auto;
+  margin-bottom: 5em;
+}
+
+.editpage
+{
+  color: $edit-page-button;
+  width: 7%;
+  margin-bottom: 5em;
+  line-height: 7.5%;
+}
+
+.deletepage
+{
+  color: $delete-page-button;
+  width: 7%;
+  margin-bottom: 5em;
+  line-height: 7.5%;
+}
 
 
 .author

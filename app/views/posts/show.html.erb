@@ -13,7 +13,7 @@
         <% @post.comments.each do | comment |%>
             <strong><%= @comment.user.username =%> says:</strong>
                 <%=raw @comment.content =%>
-        <% if current_user.role == "admin" || @comment.user == current_user %>
+        <% if @comment.user == current_user %>
             <%= link_to edit_comment_path(@post, comment) %>
             <%= link_to "Delete", [@post, comment], method: :delete %>
         <% end %>
@@ -34,17 +34,26 @@
 
 <% end %>
 <% end %>
+</div>
+<br>
+<% if user_signed_in? %>
+<div class="functions">
 
-<%if user_signed_in? && current_user.role_id == 1 %>
-  <%= link_to 'Edit', edit_post_path(@post), title: 'Edit this post' do%>
-    <i class="fas fa-edit fa-3x">  </i>
-<% end %>
-<% end %>
 
-<%if user_signed_in? && current_user.role_id == 1 %>
-<%= link_to 'Delete', @post, method: :delete, title: 'Delete this post' do%>
-  <i class="fas fa-trash fa-3x"> </i>
+  <%= link_to edit_post_path(@post) do%>
+    <i class="fa fa-edit editpage fa-3x"></i>
   <% end %>
+
+
+
+
+  <%= @post, data: {confirm: "Are you sure you want delete this post?"}, remote: true do%>
+    <i class="fa fa-trash deletepage fa-3x"></i>
+  <% end %>
+
+
+</div>
 <% end %>
+
 
 <%= link_to 'Back to the main page', root_path %>

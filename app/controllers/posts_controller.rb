@@ -7,7 +7,7 @@ class PostsController < ApplicationController
 
     def new
      @post = current_user.posts.build
-     
+
      #authorize @post
     end
 
@@ -26,7 +26,7 @@ class PostsController < ApplicationController
     end
 
     def destroy
-     set_post 
+     set_post
      @post.destroy
      redirect_to action: "index"
     end
@@ -52,21 +52,19 @@ class PostsController < ApplicationController
             else
                 format.html {render :new}
                 format.json {render json: @post.errors, status: :unprocessable_entity}
-            end   
-        end 
+            end
+        end
 
     end
 
     private
-    def post_params
-        params.require(:post).permit(:title, :content, :header_image, uploads: [])
-    end
+      def post_params
+          params.require(:post).permit(:title, :content, :header_image, uploads: [])
+      end
 
-    def set_post  
-        @post = Post.friendly.find(params[:id])
+      def set_post
+          @post = Post.friendly.find(params[:id])
     #    authorize @post
-    end
-    
+      end
+
 end
-
-

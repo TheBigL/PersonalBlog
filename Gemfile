@@ -32,6 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Bulma Rails to simply the CSS part of the site
 gem "bulma-rails", "~> 0.7.1"
 
+# Using font-awesome to get icons from font-awesome
 gem "font-awesome-rails", '~> 4.7', '>= 4.7.0.4'
 
 gem 'font-awesome-sass', '~> 5.5'
@@ -68,10 +69,12 @@ gem 'pundit', '~> 1.1'
 gem 'paperclip'
 
 #CKEditor - To make my textarea and blog posts more robust
-gem 'ckeditor', '~> 4.2', '>= 4.2.4'
+gem 'ckeditor', '~> 4.2', '>= 4.2.4', github: 'galetahub/ckeditor'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+
+gem "mini_magick"
 
 
 
