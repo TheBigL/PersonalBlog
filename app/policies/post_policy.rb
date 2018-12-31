@@ -44,10 +44,24 @@ class PostPolicy < ApplicationPolicy
     @user.present? && @user.role_id == 1? || @post.user_id == @user.user_id?
   end
 
+
+
+  def is_admin?
+    @user.role_id == 1
+  end
+
+  def is_contributor_or_admin?
+    @user.role_id == 1 || @user.role_id == 2
+  end
+
   private
 
   def user_not_authorized
     flash[:alert] = "Can't let you do that, " + @user.username + "!"
+  end
+
+  def is_author_of_post?
+    @user == @post.user
   end
 
 end
