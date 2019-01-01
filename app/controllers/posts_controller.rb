@@ -24,10 +24,12 @@ class PostsController < ApplicationController
 
     def edit
      set_post
+     authorize @post
     end
 
     def update
      set_post
+     authorize @post
      @post.update(post_params)
      redirect_to @post
     end

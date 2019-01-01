@@ -7,7 +7,7 @@ class PostPolicy < ApplicationPolicy
 
   attr_reader :user, :post
 
-  def initialize(user, record)
+  def initialize(user, post)
     @user = user
     @post = post
   end
@@ -35,6 +35,14 @@ class PostPolicy < ApplicationPolicy
 
 
 
+
+
+  private
+
+  def user_not_authorized
+    flash[:alert] = "Can't let you do that, " + @user.username + "!"
+  end
+
   def is_admin?
     @user.role_id == 1
   end
@@ -43,14 +51,8 @@ class PostPolicy < ApplicationPolicy
     @user.role_id == 1 || @user.role_id == 2
   end
 
-  private
-
-  def user_not_authorized
-    flash[:alert] = "Can't let you do that, " + @user.username + "!"
-  end
-
   def is_author_of_post_or_admin?
-    user.username == post.user.username
+    @user.role_id == 1 || @post.user.username == @user.username
   end
 
 
