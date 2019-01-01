@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
     before_action :authenticate_user!, except: [:index, :show]
+
+    after_action :verify_authorized, except: [:index, :show]
+
     def index
      @posts = Post.order(created_at: :desc).page(params[:page]).per(10)
      #authorize @posts
@@ -7,9 +10,13 @@ class PostsController < ApplicationController
 
     def new
      @post = current_user.posts.build
-
-     #authorize @post
+     authorize @post
+     if @post.save
+      redirect_to @post, notice: 'Post was successfully created.'
+    else
+      render :new
     end
+  end
 
     def show
      set_post
@@ -27,8 +34,10 @@ class PostsController < ApplicationController
 
     def destroy
      set_post
+     authorize @post
      @post.destroy
-     redirect_to action: "index"
+
+     redirect_to action: "index", notice: "The post was removed"
     end
 
     def upvote
@@ -45,6 +54,7 @@ class PostsController < ApplicationController
 
     def create
         @post = current_user.posts.build(post_params)
+        authorize @post
         respond_to do |format|
             if @post.save
                 format.html {redirect_to @post, notice: 'Blog post has been posted!'}

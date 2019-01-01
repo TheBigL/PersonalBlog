@@ -1,28 +1,17 @@
 class PostPolicy < ApplicationPolicy
-
-
-
-
-
-  class PolicyScope < Scope
-    include Pundit
-    rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-
-
-    attr_reader :user, :record
-
-    def initialize_user(current_user, record)
-      @user = current_user
-      @post = record
-    end
-
+  class Scope < Scope
     def resolve
-      if @user.role_id == 1
-        scope.all
-      end
+      scope.where(user_id: @user.try(:id))
     end
-
   end
+
+  attr_reader :user, :post
+
+  def initialize(user, record)
+    @user = user
+    @post = post
+  end
+
 
   def show?
     true
@@ -33,15 +22,15 @@ class PostPolicy < ApplicationPolicy
   end
 
   def create?
-    @user.role_id == 1? && record.user == @user?
+    is_contributor_or_admin?
   end
 
   def update?
-    @user.present? && @user.role_id == 1? || @user.role_id == 2?
+    is_author_of_post_or_admin?
   end
 
   def destroy?
-    @user.present? && @user.role_id == 1? || @post.user_id == @user.user_id?
+    is_author_of_post_or_admin?
   end
 
 
@@ -60,8 +49,9 @@ class PostPolicy < ApplicationPolicy
     flash[:alert] = "Can't let you do that, " + @user.username + "!"
   end
 
-  def is_author_of_post?
-    @user == @post.user
+  def is_author_of_post_or_admin?
+    user.username == post.user.username
   end
+
 
 end
