@@ -11,12 +11,7 @@ class PostsController < ApplicationController
     def new
      @post = current_user.posts.build
      authorize @post
-     if @post.save
-      redirect_to @post, notice: 'Post was successfully created.'
-    else
-      render :new
     end
-  end
 
     def show
      set_post
