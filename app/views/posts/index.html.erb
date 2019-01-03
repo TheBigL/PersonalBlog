@@ -19,9 +19,11 @@
 <% end %>
 </div>
 <%= paginate @posts %>
+<div class="add">
+  <%if user_signed_in? && current_user.role_id == 1 %>
+  <%= link_to new_post_path, title: "Add a new blog post"  do%>
+    <i class="fa fa-plus-circle fa-3x newpage"></i>
+  <% end %>  
+</div>
 
-<%if user_signed_in? && current_user.role_id == 1 %>
-<%= link_to new_post_path, title: "Add a new blog post"  do%>
-  <i class="fa fa-plus-circle fa-3x newpage"></i>
-<% end %>
 <% end %>
