@@ -19,20 +19,16 @@
         <% end %>
 
     <% end %>
+
+    <%if !user_signed_in? %>
+            <strong>Yo, if you wanna comment on my site, either <%= link_to 'Sign up',  new_user_registration_path %> or <%= link_to 'Log in',  new_user_session_path %></strong>
+    <% end %>
+    <%if user_signed_in? %>
+        <%= render "comments/form"%>
+    <% end %>
 </div>
 
-<%if !user_signed_in? %>
-        <strong>Yo, if you wanna comment on my site, either <%= link_to 'Sign up',  new_user_registration_path %> or <%= link_to 'Log in',  new_user_session_path %></strong>
-<% end %>
 
-<%if user_signed_in? %>
-
-    <%= render partial: "comments/form", locals: {comment: @post.comments.new} %>
-
-
-
-
-<% end %>
 <% end %>
 </div>
 <br>
