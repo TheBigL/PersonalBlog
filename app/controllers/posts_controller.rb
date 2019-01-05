@@ -70,7 +70,7 @@ class PostsController < ApplicationController
       end
 
       def set_post
-          @post = Post.friendly.find(params[:id])
+          @post = Post.find_by_slug(params[:id])
     #    authorize @post
       end
 

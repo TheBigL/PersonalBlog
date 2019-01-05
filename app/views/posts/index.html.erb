@@ -5,7 +5,7 @@
 
 <% @posts.each do |post|  %>
     <div class="post-container">
-    <h2 class="post-title"><%= link_to post.title, "/posts/#{post.id}" %></h2>
+    <h2 class="post-title"><%= link_to post.title, "/posts/#{post.slug}" %></h2>
     <div class="author">
     <h3>Authored by: <%= post.user.username%></h3>
     <b>Posted <%=time_ago_in_words(post.created_at)%> ago</b><br/>

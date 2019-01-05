@@ -13,18 +13,16 @@
 
         <%if !user_signed_in? %>
             <strong>Yo, if you wanna comment on my site, either <%= link_to 'Sign up',  new_user_registration_path %> or <%= link_to 'Log in',  new_user_session_path %></strong>
-
         <% else %>
-            <strong>Comments are comming soon!</strong>
+            <%= render partial: "comments/form", locals: {comment: @post.comments.new} %>
         <% end %>
 
 
     <% else %>
-        <% @post.comments.each do | comment |%>
-            <%= render partial: "comments/comment", locals: {comment: comment} %>
-            <%= render @post.comments %>
-        <% end %>
+        <%= render partial: "comments/form", locals: {comment: @post.comments.new} %>
     <% end %>
+
+
 
 
 </div>

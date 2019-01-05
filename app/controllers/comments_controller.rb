@@ -1,11 +1,11 @@
 class CommentsController < ApplicationController
     before_action :set_post
     def create
-        comment_params
+        @post = set_post
         # Create associated model, just like we did in the console before
-        @comment = @post.comments.create(comment_params).permit(:content)
+        @comment = @post.comments.create(comment_params)
         # We want to show the comment in the context of the Post
-        redirect_to post_path(@post)
+        redirect_to @post
     end
 
 
@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
     end
 
     def set_post
-        @post = Post.find(params[:post_id])
+        Post.find_by_slug(params[:post_id])
     end
 
     def set_comment
