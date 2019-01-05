@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     def create
         comment_params
         # Create associated model, just like we did in the console before
-        @comment = @post.comments.create(comment_params).permit(:post.user.username, :content)
+        @comment = @post.comments.create(comment_params).permit(:content)
         # We want to show the comment in the context of the Post
         redirect_to post_path(@post)
     end

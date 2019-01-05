@@ -1,4 +1,4 @@
-<h3 class="title has-text-centered">Leban's Blog!</h1>
+<h1 class="title has-text-centered">Leban's Blog!</h1>
 
 <%= paginate @posts %>
 <div class="posts-container">
@@ -23,7 +23,7 @@
   <%if user_signed_in? && current_user.role_id == 1 %>
   <%= link_to new_post_path, title: "Add a new blog post"  do%>
     <i class="fa fa-plus-circle fa-3x newpage"></i>
-  <% end %>  
+  <% end %>
 </div>
 
 <% end %>

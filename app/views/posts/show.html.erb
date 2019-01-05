@@ -6,30 +6,30 @@
 </p>
 
 <div class="comments">
-    <h3>Comments</h3>
+    <h3 class="is-3">Comments</h3>
+
     <%if  @post.comments.count == 0%>
-        <strong>There are no comments on this post. Feel free to send one!</strong>
-    <% else %>
-        <% @post.comments.each do | comment |%>
-            <strong><%= @comment.user.username =%> says:</strong>
-                <%=raw @comment.content =%>
-        <% if @comment.user == current_user %>
-            <%= link_to edit_comment_path(@post, comment) %>
-            <%= link_to "Delete", [@post, comment], method: :delete %>
+        <strong>There are no comments on this post. Feel free to send one!</strong><br/>
+
+        <%if !user_signed_in? %>
+            <strong>Yo, if you wanna comment on my site, either <%= link_to 'Sign up',  new_user_registration_path %> or <%= link_to 'Log in',  new_user_session_path %></strong>
+
+        <% else %>
+            <strong>Comments are comming soon!</strong>
         <% end %>
 
+
+    <% else %>
+        <% @post.comments.each do | comment |%>
+            <%= render partial: "comments/comment", locals: {comment: comment} %>
+            <%= render @post.comments %>
+        <% end %>
     <% end %>
 
-    <%if !user_signed_in? %>
-            <strong>Yo, if you wanna comment on my site, either <%= link_to 'Sign up',  new_user_registration_path %> or <%= link_to 'Log in',  new_user_session_path %></strong>
-    <% end %>
-    <%if user_signed_in? %>
-        <%= render "comments/form"%>
-    <% end %>
+
 </div>
 
 
-<% end %>
 </div>
 <br>
 <% if user_signed_in? %>
