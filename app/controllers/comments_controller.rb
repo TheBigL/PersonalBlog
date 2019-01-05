@@ -10,13 +10,13 @@ class CommentsController < ApplicationController
 
 
     def update
-        set_comment
+        @comment = set_comment
         @comment.update(comment_params)
         redirect_to @post
     end
 
     def destroy
-        set_comment
+        @comment = set_comment
         @comment.destroy
         redirect_to @post
     end

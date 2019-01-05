@@ -4,7 +4,7 @@ class PostsController < ApplicationController
     after_action :verify_authorized, except: [:index, :show]
 
     def index
-     @posts = Post.order(created_at: :desc).page(params[:page]).per(10)
+     Post.order(created_at: :desc).page(params[:page]).per(10)
      #authorize @posts
     end
 
@@ -34,7 +34,7 @@ class PostsController < ApplicationController
      authorize @post
      @post.destroy
 
-     redirect_to action: "index", notice: "The post was removed"
+     redirect_to action: "index"
     end
 
     def upvote
@@ -71,7 +71,6 @@ class PostsController < ApplicationController
 
       def set_post
           @post = Post.find_by_slug(params[:id])
-    #    authorize @post
       end
 
 end
