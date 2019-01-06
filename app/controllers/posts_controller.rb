@@ -4,7 +4,7 @@ class PostsController < ApplicationController
     after_action :verify_authorized, except: [:index, :show]
 
     def index
-     Post.order(created_at: :desc).page(params[:page]).per(10)
+     @posts = Post.order(created_at: :desc).page(params[:page]).per(10)
      #authorize @posts
     end
 
