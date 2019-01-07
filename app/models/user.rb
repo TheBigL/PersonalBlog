@@ -14,4 +14,7 @@ class User < ApplicationRecord
      self.role_id = 3;
   end
 
+
+  
+
 end
