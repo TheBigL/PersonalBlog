@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
     before_action :set_post
     def create
-        @post = set_post
+        set_post
         # Create associated model, just like we did in the console before
         @comment = @post.comments.create(comment_params)
         # We want to show the comment in the context of the Post
@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
     end
 
     def set_post
-        Post.find_by_slug(params[:post_id])
+        @post = Post.friendly.find(params[:post_id])
     end
 
     def set_comment
