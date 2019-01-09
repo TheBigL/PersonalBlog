@@ -6,7 +6,9 @@ class User < ApplicationRecord
   has_many :comments
   belongs_to :roles
   has_one_attached :avatar
-  before_create :set_default_role
+  before_validation :set_default_role
+
+
 
 
 
@@ -15,6 +17,6 @@ class User < ApplicationRecord
   end
 
 
-  
+
 
 end
