@@ -5,10 +5,16 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
   has_one_attached :avatar
+  before_save :setup_role
 
 
-
-
+  def setup_role
+    if self.username == "LeonardMorrison"
+      self.role_id = 1
+    else
+      self.role_id = 3
+    end
+  end
 
 
 
