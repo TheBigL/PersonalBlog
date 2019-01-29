@@ -7,6 +7,10 @@ class PostsController < ApplicationController
      @posts = Post.order(created_at: :desc).page(params[:page]).per(10)
     end
 
+    def by_creation
+      @posts = Post.order(created_at: :asc).page(params[:page]).per(10)
+    end
+
     def new
      @post = current_user.posts.build
      authorize @post
