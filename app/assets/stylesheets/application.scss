@@ -19,11 +19,12 @@
  @import "home.scss";
  @import "posts.scss";
  @import "users.scss";
+ @import "comments.scss";
 
  $primary-color: #ec1111;
  $secondary-color: #1e88e5;
  $transition-color: #4dabf5;
- 
+
  $laptop-width: 1200px;
 
 
@@ -58,19 +59,19 @@
 
  .level > .level-item:hover
  {
-    background-color: $transition-color; 
+    background-color: $transition-color;
     color: #fff;
     animation-delay: 500ms;
  }
 
  .footer
  {
-     
+
      bottom: 0;
      position: unset;
      clear: both;
      padding-bottom: 13rem;
-     
+
 
  }
 
@@ -95,6 +96,20 @@ body
     margin: auto 0;
 }
 
+.comments
+{
+
+}
+
+.comments-body
+{
+  border-radius: 1.5rem;
+  width: 60%;
+  border: 0.5rem solid #6fafe7;
+  margin-bottom: 1.5rem;
+
+}
+
 @media screen and (min-width: $laptop-width)
 {
     .level
@@ -102,5 +117,3 @@ body
         height: 100px;
     }
 }
-
-

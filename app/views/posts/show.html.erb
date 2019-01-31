@@ -11,19 +11,26 @@
     <%if  @post.comments.count == 0%>
         <strong>There are no comments on this post. Feel free to send one!</strong><br/>
     <% else %>
-        <%= render @post.comments %>
+        <div class="comments-body">
+          <%= render @post.comments, locals: { myclass: 'indiv-comment'} %>
+
+        </div>
+
+
     <% end %>
-
-    <%if !user_signed_in? %>
-        <strong>Yo, if you wanna comment on my site, either <%= link_to 'Sign up',  new_user_registration_path %> or <%= link_to 'Log in',  new_user_session_path %></strong>
-    <% else %>
-        <%= render partial: "comments/form", locals: {comment: @post.comments.new} %>
-    <% end %>
-
-
-
-
 </div>
+
+    <% if user_signed_in? %>
+     <%= render partial: "comments/form", locals: {comment: @post.comments.new} %>
+    <% else %>
+     <b>Yo, if you wanna comment on my page, you need to <%= link_to 'Sign up',  new_user_registration_path %>
+       or <%= link_to 'Log in',  new_user_session_path %> first!</b>
+    <% end %>
+
+
+
+
+
 
 
 </div>

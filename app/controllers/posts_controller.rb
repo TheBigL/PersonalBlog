@@ -13,6 +13,7 @@ class PostsController < ApplicationController
 
     def new
      @post = current_user.posts.build
+     @post.user_id = current_user.user_id
      authorize @post
     end
 

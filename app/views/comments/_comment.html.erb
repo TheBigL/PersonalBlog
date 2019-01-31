@@ -1,3 +1,5 @@
-<strong><%= @post.comment.user.username %> says:</strong><br>
-    <%=@post.comment.content %>
-    <p><= time_ago_in_words(comment.created_at) %></p>
+<div class="indiv-comment">
+  <strong><%= comment.user.username %></strong> says:<br>
+      <%= raw comment.content %>
+      <p>Created <%= time_ago_in_words(comment.created_at) %> ago</p>
+</div>

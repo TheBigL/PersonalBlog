@@ -3,8 +3,11 @@ class CommentsController < ApplicationController
     def create
         set_post
         # Create associated model, just like we did in the console before
-        @comment = @post.comments.create(comment_params)
+        @comment = @post.comments.build(comment_params.merge({:post_id => @post.post_id, :user_id => current_user.user_id}))
         # We want to show the comment in the context of the Post
+        # @comment.post_id = @post.post_id
+        # @comment.user_id = current_user.user_id
+        @comment.save
         redirect_to @post
     end
 
