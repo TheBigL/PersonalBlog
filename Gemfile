@@ -52,7 +52,7 @@ gem 'nokogiri', '~> 1.8', '>= 1.8.5'
 gem 'sassc', '~> 1.12', '>= 1.12.1'
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -74,7 +74,7 @@ gem 'ckeditor', '~> 4.2', '>= 4.2.4', github: 'galetahub/ckeditor'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem "mini_magick"
+gem 'carrierwave', '~> 1.0'
 
 
 
