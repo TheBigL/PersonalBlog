@@ -15,6 +15,10 @@
 
       </div>
         <p><%=raw post.content %></p><br/>
+        <div class="image_index" style="width:400px; height:auto;">
+          <%= image_tag(post.upload, style: "width:100%;") if post.upload.attached? %>
+        </div>
+
     </div>
 <% end %>
 </div>

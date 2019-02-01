@@ -5,6 +5,10 @@
     <%=raw @post.content %>
 </p>
 
+<div class="files" style="width:400px; height:auto;">
+   <%= image_tag(@post.upload, style: "width:100%;") if @post.upload.attached? %>
+</div>
+
 <div class="comments">
     <h3 class="is-3">Comments</h3>
 

@@ -25,6 +25,11 @@ Ckeditor.setup do |config|
   # By default: there is no authorization.
   # config.authorize_with :cancan
 
+  Ckeditor.setup do |config|
+  # //cdn.ckeditor.com/<version.number>/<distribution>/ckeditor.js
+    config.cdn_url = "//cdn.ckeditor.com/4.6.1/basic/ckeditor.js"
+  end
+
   # Override parent controller CKEditor inherits from
   # By default: 'ApplicationController'
   # config.parent_controller = 'MyController'
@@ -45,11 +50,11 @@ Ckeditor.setup do |config|
   # By default: nil (no limit)
   # config.assets_languages = ['en', 'uk']
   # config.assets_plugins = ['image', 'smiley']
-
+  
   # CKEditor CDN
   # More info here http://cdn.ckeditor.com/
   # By default: nil (CDN disabled)
-  # config.cdn_url = '//cdn.ckeditor.com/4.7.1/standard/ckeditor.js'
+  # config.cdn_url = '//cdn.ckeditor.com/4.11.1/standard/ckeditor.js'
 
   # JS config url
   # Used when CKEditor CDN enabled
