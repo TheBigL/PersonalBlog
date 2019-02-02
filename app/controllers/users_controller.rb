@@ -8,30 +8,37 @@ after_action :verify_authorized
     authorize User
   end
 
+  def created_at
+
+    
+
+
+  end
+
   def show
     @user = User.find(params[:id])
     authorize @user
   end
 
-    def destroy
-        user = User.find(params[:id])
-        authorize user
-        @user.destroy
+  def destroy
+    user = User.find(params[:id])
+    authorize user
+    @user.destroy
 
-        if @user.destroy
-            redirect_to root_url, notice: "The user has been deleted..."
-        end
-
+    if @user.destroy
+      redirect_to root_url, notice: "The user has been deleted..."
     end
 
-    def update
-        @user = User.find(params[:id])
-        authorize user
-    end
+  end
 
-    def destroy
+  def update
+    @user = User.find(params[:id])
+    authorize user
+  end
 
-    end
+  def destroy
+
+  end
 
 
     private
