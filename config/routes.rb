@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'projects/index'
+  get 'projects/show'
+  get 'projects/new'
+  get 'projects/update'
+  get 'projects/destroy'
   mount Ckeditor::Engine => '/ckeditor'
   devise_for :users, controllers: { registrations: "registrations"}
   resources :users
@@ -6,6 +11,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
+  resources :projects
 
 
 
