@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_01_021222) do
+ActiveRecord::Schema.define(version: 2019_02_03_003550) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -78,6 +78,16 @@ ActiveRecord::Schema.define(version: 2019_02_01_021222) do
     t.integer "post_id"
     t.string "image"
     t.index ["post_id"], name: "index_posts_on_post_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.integer "project_id"
+    t.string "weburl"
+    t.string "githuburl"
+    t.text "more"
+    t.boolean "featured"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "roles", force: :cascade do |t|
