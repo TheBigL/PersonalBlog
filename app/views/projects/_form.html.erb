@@ -1,0 +1,16 @@
+<div class="form-inputs row">
+  <div class="col-12 col-lg-6">
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :weburl %>
+    <%= f.input :giturl %>
+    <%= f.input :image %>
+    <%= f.input :featured %>
+  </div>
+  <div class="col-12 col-lg-6">
+    <%= f.cktext_area :more, input_html: { rows: 18 } %>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  </div>
+  </div>

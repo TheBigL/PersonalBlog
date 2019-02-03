@@ -66,7 +66,8 @@ gem 'devise', '~> 4.4', '>= 4.4.3'
 #Pundit - Authorization Gem
 gem 'pundit', '~> 1.1'
 
-gem 'paperclip'
+
+
 
 #CKEditor - To make my textarea and blog posts more robust
 gem 'ckeditor', '~> 4.2', '>= 4.2.4', github: 'galetahub/ckeditor'
