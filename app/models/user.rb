@@ -1,13 +1,13 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
   has_many :comments
   belongs_to :role
   has_one_attached :avatar
-  # before_create :confirmation_token
-  # before_save :setup_role
-  # after_create :welcome_email
+  before_create :confirmation_token!
+  before_save :setup_role
+  after_create :welcome_email
 
   def setup_role
     if self.username == "LeonardMorrison"

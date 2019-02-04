@@ -138,6 +138,3 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 
 #Pagination for the site (Note: "kaminari" is Japanese for lightning.)
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
-
-
-gem 'dokku-cli'
