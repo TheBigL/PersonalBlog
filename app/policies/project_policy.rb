@@ -5,6 +5,10 @@ class ProjectPolicy < ApplicationPolicy
     end
   end
 
+  attr_reader :user
+
+
+
   def index?
     true
   end
