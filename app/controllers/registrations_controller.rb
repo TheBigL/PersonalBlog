@@ -2,15 +2,11 @@ class RegistrationsController < Devise::RegistrationsController
     private
 
     def sign_up_params
-
-      @User =  params.require(:user).permit(:username, :email, :password, :password_confirmation)
-      if @user.save
-        UserMailer.registration_confirmation(@user).deliver
+      if @user.
+        UserMailer.confirmation_instructions(@user).deliver
+      end
 
     end
-
-
-
     def account_update_params
         params.require(:user).permit(:username, :email, :password, :password_confirmation, :currentpassword)
     end
