@@ -11,7 +11,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
    def create
+     if @user.save
+       @user.confirmation_token
      UserMailer.confirmation_instructions(@user).deliver
+     redirect_to root_path
    end
 
   # GET /resource/edit

@@ -27,7 +27,9 @@ class User < ApplicationRecord
   end
 
   def welcome_email(user)
+    confirm_token
     UserMailer.registration_confirmation(user)
+    redirect_to root_path
 
   end
 
