@@ -1,17 +1,58 @@
 // Place all the styles related to the static controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
 .row
 {
   justify-content: center;
   width: 60%;
   margin: auto;
   text-align: center;
+  align-items: center;
+
+}
+
+.title
+{
+  text-align: center;
+  margin-bottom: 5.5rem;
+}
+
+.part1, .part2
+{
+  display: flex;
+  flex-direction: row;
+}
+
+.part2
+{
+  margin-top: 4.5rem;
 }
 
 .picture1
 {
   transform: rotate(270);
   -webkit-transform: rotate(-90deg);
-  margin: auto;
+  display: block;
+  align-items: flex-start;
+  float: right;
+  align-self: center;
+
+}
+
+.picture2
+{
+  display: block;
+  align-items: flex-start;
+  float: right;
+  align-self: center;
+}
+
+.paragraph1, .paragraph2
+{
+  justify-content: center;
+  text-align: center;
+  align-self: center;
+
 }
