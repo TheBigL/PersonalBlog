@@ -21,7 +21,6 @@ class UserPolicy < ApplicationPolicy
 
     def update?
       is_admin?
-      :notice => "The User has been updated."
     end
 
     def destroy?
@@ -41,5 +40,4 @@ class UserPolicy < ApplicationPolicy
 
 
   end
-end
 end

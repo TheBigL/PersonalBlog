@@ -21,14 +21,17 @@
  @import "users.scss";
  @import "comments.scss";
 
- $primary-color: #ec1111;
- $secondary-color: #1e88e5;
- $transition-color: #4dabf5;
+ $primary-color: #AA3939;
+ $secondary-color: #D46D6A;
+ $transition-color: #FFAAAA;
 
  $laptop-width: 1200px;
 
 
-
+.title
+{
+  color: #fff;
+}
 
  .footer,  .header
  {
@@ -36,14 +39,24 @@
      width: 100%;
  }
 
- .header
+ header
  {
+     background-color: $primary-color;
      text-align: center;
+     color: #ffffff;
+ }
+
+
+ .navbar-menu
+ {
+   width: 100%;
+   display: flex;
  }
 
  .level
  {
-     background-color: #5959e6;
+     width: 100%;
+     background-color: $secondary-color;
  }
 
  .level-item

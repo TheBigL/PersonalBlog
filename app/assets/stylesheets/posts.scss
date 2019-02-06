@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $color-primary: #ff1744;
-$secondary-color: #1e88e5;
+$secondary-color: #D46D6A;
 $border-color: #2626e2;
 $new-page-button: #00FF7F;
 $edit-page-button: #FAFA67;
@@ -35,6 +35,7 @@ $delete-page-button: #000000;
     overflow: hidden;
     border: 4px groove $border-color;
     transition: background-color 200ms;
+    border-radius: 25px 25px 25px 25px;
 
 
 }
