@@ -11,10 +11,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
    def create
-     if @user.save
-       @user.confirmation_token
-     UserMailer.confirmation_instructions(@user).deliver
-     redirect_to root_path
+
+    @user.confirmation_token
+    UserMailer.confirmation_instructions(@user).deliver
+    redirect_to root_path
+   end
    end
 
   # GET /resource/edit
@@ -41,12 +42,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  protected
-
   # If you have extra params to permit, append them to the sanitizer.
-  def configure_sign_up_params
-     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :email, :password, :password_confirmation])
-  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
@@ -65,10 +61,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
   private
+
+  def configure_sign_up_params
+     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :email, :password, :password_confirmation])
+  end
+
+  
   def sign_up_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
-
-
-
-end
