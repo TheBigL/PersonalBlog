@@ -7,7 +7,6 @@ class User < ApplicationRecord
   has_one_attached :avatar
   before_create :confirmation_token!
   before_save :setup_role
-  after_create :welcome_email
 
 
 
@@ -20,19 +19,6 @@ class User < ApplicationRecord
   end
 
 
-  private
-
-  def confirmation_token
-    if self.confirm_token.blank?
-          self.confirm_token = SecureRandom.urlsafe_base64.to_s
-      end
-  end
-
-  def welcome_email(user)
-    UserMailer.registration_confirmation(user, user.confirm_token)
-    user.errors.messages
-    redirect_to root_path
-  end
 
 
 

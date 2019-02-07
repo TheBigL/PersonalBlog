@@ -9,9 +9,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    super
+    if @user.errors.empty?
+      UserMailer.confirmation_instructions(@user, @user.confirmation_token)
+    end  
+  end
 
   # DELETE /resource/sign_out
   # def destroy

@@ -49,6 +49,7 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
@@ -69,12 +70,12 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
 
   config.action_mailer.smtp_settings = {
-    user_name:      ENV['SENDMAIL_USERNAME'],
+    user_name:      'TheBigL',
     password:       ENV['SENDMAIL_PASSWORD'],
     domain:         ENV['MAIL_HOST'],
     address:       'smtp.gmail.com',
     port:          '587',
-    authentication: :plain,
+    authentication: :login,
     enable_starttls_auto: true
   }
 end

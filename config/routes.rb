@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
-  devise_for :users, controllers: { registrations: "users/registrations", sessions: 'users/sessions'}
+  devise_for :users, :controllers => { :registrations => "users/registrations" }
   resources :users do
     get :confirmation_token
   end
