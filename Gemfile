@@ -108,6 +108,8 @@ group :development do
   # Automatically resets the server upon change the view.
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
 
+  gem 'rb-readline'
+
   gem "letter_opener"
 end
 

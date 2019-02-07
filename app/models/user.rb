@@ -9,6 +9,8 @@ class User < ApplicationRecord
   before_save :setup_role
   after_create :welcome_email
 
+
+
   def setup_role
     if self.username == "LeonardMorrison"
       self.role_id = 1
@@ -27,10 +29,9 @@ class User < ApplicationRecord
   end
 
   def welcome_email(user)
-    confirm_token
-    UserMailer.registration_confirmation(user)
+    UserMailer.registration_confirmation(user, user.confirm_token)
+    user.errors.messages
     redirect_to root_path
-
   end
 
 
