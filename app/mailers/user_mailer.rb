@@ -6,8 +6,10 @@ class UserMailer < Devise::Mailer
 
   default :from => "leonard.morrison@outlook.com"
 
-  def confirmation_instructions(user)
-    @user = user
-    mail(:to => 'leonard.morrison@outlook.com', :subject => "Welcome to my blog! Click here to register.")
+  def confirmation_instructions(@user, @user.confirmation_token, opts={})
+  headers["Custom-header"] = "Bar"
+  opts[:from] = 'leonard.morrison@outlook.com'
+  opts[:reply_to] = 'leonard.morrison@outlook.com'
+  super
   end
 end
