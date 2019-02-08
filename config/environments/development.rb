@@ -70,12 +70,12 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
 
   config.action_mailer.smtp_settings = {
-    user_name:      'TheBigL',
+    user_name:      ENV['SENDMAIL_USERNAME'],
     password:       ENV['SENDMAIL_PASSWORD'],
     domain:         ENV['MAIL_HOST'],
     address:       'smtp.gmail.com',
     port:          '587',
-    authentication: :login,
+    authentication: 'login',
     enable_starttls_auto: true
   }
 end

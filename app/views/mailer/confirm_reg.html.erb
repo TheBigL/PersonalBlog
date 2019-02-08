@@ -1,9 +1,6 @@
-<p>Welcome, <%= @user.email %>!</p>
+<p>Welcome, <%= @user.username %>!</p>
 
 <p>Thank you for registering for my blog. You can comment on my blog posts and add to the conversation.</p>
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
 
 <p>I hope to hear from you soon!</p>
 

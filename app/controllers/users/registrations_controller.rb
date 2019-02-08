@@ -11,9 +11,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource/sign_in
   def create
     super
-    if @user.errors.empty?
+    if @user.persisted?
       UserMailer.confirmation_instructions(@user, @user.confirmation_token)
-    end  
+    end
   end
 
   # DELETE /resource/sign_out

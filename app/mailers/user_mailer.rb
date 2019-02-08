@@ -10,4 +10,12 @@ class UserMailer < Devise::Mailer
     opts[:reply_to] = 'leonard.morrison@outlook.com'
     super
   end
+
+
+
+  def account_activation(user)
+    @user = user
+    mail to: user.email, subject: "User Activation"
+
+  end
 end

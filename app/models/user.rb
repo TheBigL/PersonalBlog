@@ -4,8 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
   has_many :comments
   belongs_to :role
-  has_one_attached :avatar
-  before_create :confirmation_token!
   before_save :setup_role
 
 
@@ -16,6 +14,10 @@ class User < ApplicationRecord
     else
       self.role_id = 3
     end
+  end
+
+  def send_activation_email
+    User.send_activation_email(self).deliver
   end
 
 
