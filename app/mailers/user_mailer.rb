@@ -4,18 +4,11 @@ class UserMailer < Devise::Mailer
   include Devise::Controllers::UrlHelpers # Optional. eg. `confirmation_url`
   default template_path: 'devise/mailer' # to make sure that your mailer uses the devise views
 
-  def confirmation_instructions(record, token, opts={})
-    headers["Custom-header"] = "Welcome to my Blog!"
-    opts[:from] = 'leonard.morrison@outlook.com'
-    opts[:reply_to] = 'leonard.morrison@outlook.com'
-    super
-  end
-
 
 
   def account_activation(user)
     @user = user
-    mail to: user.email, subject: "User Activation"
+    mail to: user.email, subject: "User Activation", from: 'leonard.morrison@outlook.com'
 
   end
 end
