@@ -5,7 +5,12 @@ class ProjectPolicy < ApplicationPolicy
     end
   end
 
-  attr_reader :user
+  attr_reader :user, :project
+
+  def initialize(current_user, model)
+   @user = current_user
+   @project = model
+  end
 
 
 
@@ -34,6 +39,7 @@ class ProjectPolicy < ApplicationPolicy
   private
   def isLeonard?
     @user.username == "LeonardMorrison"
+  end
 
 
 end
