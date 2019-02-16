@@ -11,9 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource/sign_in
   def create
     super
-    if @user.persisted?
-      UserMailer.confirmation_instructions(@user, @user.confirmation_token)
-    end
+    session[:omniauth] = nil unless @user.new_record?
   end
 
   # DELETE /resource/sign_out
@@ -24,8 +22,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_in_params
-  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
-  # end
+  def configure_sign_in_params
+   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
+  end
 
 end

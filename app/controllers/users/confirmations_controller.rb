@@ -17,6 +17,19 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
     super if resource.nil? or resource.confirmed?
   end
 
+  def confirm
+    confirmation_token = params[resource_name][:confirmation_token]
+    self.resource = resource_class.find_by_confirmation_token!(confirmation_token)
+
+    if resource.update(confirmation_params) && resource.password_match?
+      self.resource = resource_class.confirm_by_token(confirmation_token)
+      set_flash_message :notice, :confirmed
+      sign_in_and_redirect resource_name, resource
+    else
+      render :show
+    end
+  end
+
   # protected
 
   # The path used after resending confirmation instructions.
@@ -28,4 +41,10 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   # def after_confirmation_path_for(resource_name, resource)
   #   super(resource_name, resource)
   # end
+
+  private
+
+  def confirmation_params
+    params.require(resource_name).permit(:password, :password_confirmation)
+  end
 end
