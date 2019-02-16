@@ -15,10 +15,6 @@ class User < ApplicationRecord
     end
   end
 
-  def send_activation_email
-    User.send_activation_email(self).deliver
-  end
-
 
 
 

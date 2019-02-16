@@ -11,7 +11,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource/sign_in
   def create
     super
-    session[:omniauth] = nil unless @user.new_record?
   end
 
   # DELETE /resource/sign_out
