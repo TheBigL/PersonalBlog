@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
-  devise_for :users, :controller =>  "users" 
+  devise_for :users, :controller =>  "users"
   resources :users do
     get :confirmation_token
   end
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
 
   root "posts#index"
+  get '/check.txt', to: proc { [200, {}, ['it_works']] }
 
 
 end
