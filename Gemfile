@@ -32,8 +32,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem "bulma-rails", "~> 0.7.1"
 
 # Using font-awesome to get icons from font-awesome
-gem "font-awesome-rails", '~> 4.7', '>= 4.7.0.4'
-
 gem 'font-awesome-sass', '~> 5.5'
 
 # Use Simple for Authentication
