@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/galetahub/ckeditor.git
-  revision: 2def63b8be9bac701869d70a4f6600772b42de3d
+  revision: 61e56ceafa1cc2d975d25e2b7eef1cb5e40caabc
   specs:
     ckeditor (4.3.0)
       orm_adapter (~> 0.5.0)
@@ -386,4 +386,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   2.0.1
+   1.17.3
