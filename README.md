@@ -20,3 +20,7 @@ Special Thanks:
 Eric Hoff
 
 Alan Vardy - His blog post on deploying rails apps via Digital Ocean helped me a lot.
+
+My Mama, Safia Mohamud - who pushed me to make this blog.
+
+Jared Jackson - For creating the favicon
