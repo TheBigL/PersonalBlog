@@ -1,5 +1,5 @@
 # README
-
+My Personal Blog - Leonard Morrison
 Ruby Version: 2.5.1
 
 Gems used:
@@ -17,7 +17,7 @@ Bootstrap (CSS Framework)
 
 Special Thanks:
 
-Eric Hoff
+Eric Hoff - For his contribution to the Comments
 
 Alan Vardy - His blog post on deploying rails apps via Digital Ocean helped me a lot.
 
