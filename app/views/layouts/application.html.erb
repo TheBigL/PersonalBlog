@@ -7,7 +7,7 @@
     <% if content_for :head %>
       <%= yield(:head) %>
     <% end %>
-
+    <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -17,7 +17,7 @@
     <%= render 'layouts/navbar'%>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>    
+    <%= yield %>
   </body>
   <%= render 'layouts/footer' %>
 </html>
