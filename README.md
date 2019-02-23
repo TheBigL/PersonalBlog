@@ -14,6 +14,8 @@ Better Errors (Used to track errors)
 
 Bootstrap (CSS Framework)
 
+Note to self: DO NOT UNDER ANY CIRCUMSTANCES, UPDATE BUNDLER TO 2.0! IT MESSES UP THIS VERY BLOG
+
 
 Special Thanks:
 

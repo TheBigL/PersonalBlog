@@ -26,7 +26,10 @@
  $transition-color: #FFAAAA;
 
  $laptop-width: 1200px;
-
+p
+{
+  color: #000;
+}
 
 .title
 {
@@ -37,6 +40,7 @@
  {
      background-color: $primary-color;
      width: 100%;
+     color: #fff;
  }
 
  header
