@@ -35,9 +35,14 @@
   color: #000;
 }
 
-.part1, .part2
+[class*="part"]
 {
   display: block;
+}
+
+[class*="part"] h3
+{
+  font-size: 1.5rem;
 }
 
 .part2
