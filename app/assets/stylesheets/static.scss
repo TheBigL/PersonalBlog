@@ -38,6 +38,7 @@
 [class*="part"]
 {
   display: block;
+  margin-bottom: 3.5rem;
 }
 
 [class*="part"] h3
@@ -56,8 +57,7 @@
   -webkit-transform: rotate(-90deg);
   display: block;
   float: right;
-  align-self: center;
-  flex-grow: 2;
+  margin-bottom: 3.5rem;
 
 }
 
