@@ -46,6 +46,12 @@
   font-size: 1.5rem;
 }
 
+[class*="paragraph"]
+{
+  text-align: center;
+  margin-left: 1.5rem;
+}
+
 .part2
 {
   margin-top: 4.5rem;
@@ -67,4 +73,10 @@
   align-items: flex-start;
   float: right;
   align-self: center;
+}
+
+
+@media(max-width: 768px)
+{
+  margin-left: 2.5rem;
 }
