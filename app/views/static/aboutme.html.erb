@@ -7,33 +7,37 @@
   <h2 class="is-2">I'm Leonard Morrison.</h2>
 </div>
 
-
-<div class="part1">
-<div class="picture1">
-    <%= render 'layouts/mdimage', locals: {folder: 'static', filename: 'LeonardMorrison-1.jpg'} %>
-</div>
-<div class="paragraph1">
-  <h3　class="is-3">My Beginnings</h3>
-  <p>I create applications in various programming languages.
-  I'm a software developer based in Edmonton, Alberta, Canada.</p><br>
-
-  <p>
-  I'm a native of London, Ontario.
-  Fun Fact: London, Ontario is the birthplace of Ryan Gosling.
-  </p>
-</div>
-
-</div>
-
-<div class="part2">
-  <div class="picture2">
-    <%= render 'layouts/mdimage', locals: {folder: 'static', filename:'Me-in-Seattle.jpg'} %>
+<div class="row">
+  <div class="part1">
+  <div class="picture1 col-12 col-lg-6 order-lg-2">
+      <%= render 'layouts/mdimage', locals: {folder: 'static', filename: 'LeonardMorrison-1.jpg'} %>
   </div>
-<div class="paragraph2">
-  <h3 class="is-3">I love to travel!</h3>
-  <p>I've been to London (Ontario), Toronto, Buffalo, Columbus, Calgary, Edmonton, London (UK),
-    New York City, Portland, Seattle, Tokyo, and Vancouver.  </p>
+
+  <div class="paragraph1 col-12 col-lg-6 order-lg-1">
+    <h3　class="is-3">My Beginnings</h3>
+    <p>I create applications in various programming languages.
+    I'm a software developer based in Edmonton, Alberta, Canada.</p><br>
+
+    <p>
+    I'm a native of London, Ontario.
+    Fun Fact: London, Ontario is the birthplace of Ryan Gosling.
+    </p>
+  </div>
+
+  </div>
+
+  <div class="part2">
+    <div class="picture2 col-12 col-lg-6 order-lg-4">
+      <%= render 'layouts/mdimage', locals: {folder: 'static', filename:'Me-in-Seattle.jpg'} %>
+    </div>
+  <div class="paragraph2 col-12 col-lg-6 order-lg-3">
+    <h3 class="is-3">I love to travel!</h3>
+    <p>I've been to London (Ontario), Toronto, Buffalo, Columbus, Calgary, Edmonton, London (UK),
+      New York City, Portland, Seattle, Tokyo, and Vancouver.  </p>
+  </div>
+  </div>
 </div>
+
 
 <div class="part3">
 
@@ -48,26 +52,6 @@
 
 
 </div>
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
