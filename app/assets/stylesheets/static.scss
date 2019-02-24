@@ -6,7 +6,7 @@
 .row
 {
   justify-content: center;
-  width: 60%;
+  width: 100%;
   margin: auto;
   text-align: center;
   align-items: center;
@@ -78,5 +78,8 @@
 
 @media(max-width: 768px)
 {
-  margin-left: 2.5rem;
+  [class*="paragraph"]
+  {
+    margin-left: 2.5rem;
+  }
 }
