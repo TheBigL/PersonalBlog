@@ -95,13 +95,7 @@ Rails.application.configure do
 
 
 
-  config.action_mailer.default_url_options = {:host => 'personalblog.leonardmorrison.net'}
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-  :address => "127.0.0.1",
-  :port    => 25,
-  :domain  => 'personalblog.leonardmorrison.net'
-}
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
