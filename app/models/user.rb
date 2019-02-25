@@ -4,7 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
   belongs_to :role
   before_save :setup_role
-  after_create :welcome_user
 
 
 
@@ -17,11 +16,7 @@ class User < ApplicationRecord
   end
 
 
-  def welcome_user
-    UserMailer.account_activation(user).deliver
-    redirect_to root_path, alert: "Check your email"
 
-  end
 
 
 
