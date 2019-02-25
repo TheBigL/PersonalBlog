@@ -7,7 +7,7 @@
   ],
   "scripts": {
     "dokku": {
-      "postdeploy": "bundle exec rails db:migrate:up VERSION=20190225054428"
+      "postdeploy": "bundle exec rails db:migrate"
     }
   }
 }
