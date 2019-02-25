@@ -16,16 +16,7 @@ module Blog
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-    ActionMailer::Base.stmp_settings =
-    {
-      user_name:      ENV['SENDMAIL_USERNAME'],
-      password:       ENV['SENDMAIL_PASSWORD'],
-      domain:         ENV['MAIL_HOST'],
-      address:       'smtp.gmail.com',
-      port:          '587',
-      authentication: 'login',
-      enable_starttls_auto: true      
-    }
+
 
 
   end
