@@ -92,6 +92,16 @@
     width: 50%;
   }
 
+  [class*="paragraph"] > p
+  {
+    width: 100%;
+  }
+
+  [class*="part"] h2
+  {
+    text-align: center;
+  }
+
   [class*="picture"] > img
   {
     display: block;
