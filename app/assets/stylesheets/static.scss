@@ -6,9 +6,6 @@
 .row
 {
   justify-content: center;
-  width: 100%;
-  margin: auto;
-  text-align: center;
   color: #000;
 
 }
@@ -81,6 +78,9 @@
   {
     text-align: center;
     float: none;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
 
   }
 
@@ -114,7 +114,9 @@
 
 }
 
-@media (min-width: 768px)
+
+
+@media (min-width: 1024px)
 {
 
 
