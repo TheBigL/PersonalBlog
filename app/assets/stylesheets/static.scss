@@ -84,6 +84,11 @@
 
   }
 
+  .row
+  {
+    width: 60%;
+  }
+
 }
 
 @media (min-width: 768px)
@@ -100,8 +105,5 @@
     margin-bottom: 3.5rem;
   }
 
-  .row
-  {
-    width: 60%;
-  }
+
 }
