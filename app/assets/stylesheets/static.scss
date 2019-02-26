@@ -50,26 +50,13 @@
   margin-left: 1.5rem;
 }
 
-.part2
-{
-  margin-top: 4.5rem;
-}
-
-.picture1
+[class*="picture"]
 {
   display: block;
-  float: right;
   margin-bottom: 3.5rem;
 
 }
 
-.picture2
-{
-  display: block;
-  align-items: flex-start;
-  float: right;
-  align-self: center;
-}
 
 
 @media(max-width: 768px)
