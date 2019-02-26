@@ -74,12 +74,3 @@
   float: right;
   align-self: center;
 }
-
-
-@media(max-width: 768px)
-{
-  [class*="paragraph"]
-  {
-    margin-left: 2.5rem;
-  }
-}
