@@ -74,3 +74,15 @@
   float: right;
   align-self: center;
 }
+
+
+@media(max-width: 768px)
+{
+  .row
+  {
+    text-align: center;
+    float: none;
+    
+  }
+
+}
