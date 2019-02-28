@@ -109,13 +109,13 @@
   [class*="part"]
   {
     display: block;
-    width: 50%;
+    width: 100%;
     margin: auto;
   }
 
-  [class*="picture"] img
+  [class*="picture"] > img
   {
-    width: 100%;
+    width: 80%;
     overflow: auto;
 
   }
