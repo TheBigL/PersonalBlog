@@ -21,14 +21,15 @@ class UsersController < ApplicationController
 
 
   def create
-    @user = User.new(params[:user])
-    if @user.save?
-      UserMailer.account_activation(@user)
-      redirect_to @user, :notice => "Sign up successful"
-
+    # Create the user from params
+    @user = User.create(user_params)
+    if @user.save
+      # Deliver the signup email
+      UserMailer.send_signup_email(@user).deliver
+      redirect_to(@user, :notice => 'User created')
+    else
+      render :action => 'new'
     end
-
-
   end
 
 # GET /users/1/edit

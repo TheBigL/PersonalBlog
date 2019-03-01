@@ -1,6 +1,8 @@
 <p>Welcome, <%= @user.username %>!</p>
 
 <p>Thank you for registering for my blog. You can comment on my blog posts and add to the conversation.</p>
+<p>Here's a link to get you started:</p>
+<%= @user.confirmation_token %>
 
 <p>I hope to hear from you soon!</p>
 

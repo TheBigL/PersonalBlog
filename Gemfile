@@ -134,8 +134,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'pg'
 
-
-
 # Require bootstrap
 gem 'bootstrap', '~> 4.1.1'
 
