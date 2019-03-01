@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.save
       # Deliver the signup email
-      UserMailer.send_signup_email(@user).deliver
+      UserMailer.registration_confirmation(@user).deliver
       redirect_to(@user, :notice => 'User created')
     else
       render :action => 'new'

@@ -15,11 +15,6 @@ class User < ApplicationRecord
     end
   end
 
-  private
-  def confirmation_token
-    
-  end
-
 
 
 
