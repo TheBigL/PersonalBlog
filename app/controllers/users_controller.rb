@@ -26,7 +26,8 @@ class UsersController < ApplicationController
     if @user.save
       # Deliver the signup email
       UserMailer.registration_confirmation(@user).deliver
-      redirect_to(@user, :notice => 'User created')
+      format.html { redirect_to(@user, notice: 'User was successfully created.') }
+      format.json { render json: @user, status: :created, location: @user }
     else
       render :action => 'new'
     end
