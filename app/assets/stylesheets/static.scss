@@ -106,22 +106,41 @@
 @media (min-width: 768px)
 {
 
+  .row
+  {
+    text-align: center;
+    width: 100%;
+  }
+
   [class*="part"]
   {
     display: block;
-    width: 100%;
+    width: 42.5%;
     margin: auto;
+
   }
 
-  [class*="picture"] > img
+  [class*="part"]:nth-child(odd)
   {
-    width: 80%;
-    overflow: auto;
+    float: left;
+  }
 
+  [class*="part"]:nth-child(even)
+  {
+    float: right;
   }
 
 
+  [class*="paragraph"]
+  {
+    float: left;
+  }
 
+  [class*="picture"]
+  {
+    width: 100%;
+    float: right;
 
+  }
 
 }

@@ -9,13 +9,14 @@
 <div class="row">
   <div class="part1">
   <div class="picture1 col-12 col-lg-6 order-lg-2">
-      <%= render 'layouts/mdimage', locals: {folder: 'static', filename: 'Mario-Leonard.jpg'} %>
+      <%= render 'layouts/lgimage', locals: {folder: 'static', filename: 'Mario-Leonard.jpg'} %>
   </div>
 
   <div class="paragraph1 col-12 col-lg-6 order-lg-1">
     <h2>Beginnings</h2>
     <p>I create applications in various programming languages.
-    I'm a software developer based in Edmonton, Alberta, Canada.<br>
+    I'm a software developer based in Edmonton, Alberta, Canada.
+
 
     I'm a native of London, Ontario, the "Forest City".
     Fun Fact: London, Ontario is the birthplace of Ryan Gosling.
@@ -26,7 +27,7 @@
 
   <div class="part2">
     <div class="picture2 col-12 col-lg-6 order-lg-4">
-      <%= render 'layouts/mdimage', locals: {folder: 'static', filename:'Me-in-Seattle.jpg'} %>
+      <%= render 'layouts/lgimage', locals: {folder: 'static', filename:'Me-in-Seattle.jpg'} %>
     </div>
   <div class="paragraph2 col-12 col-lg-6 order-lg-3">
     <h2>I love to travel!</h2>
@@ -39,7 +40,7 @@
 <div class="row">
   <div class="part3">
 
-    <div class="paragraph3">
+    <div class="paragraph3 col-12 col-lg-6 order-lg-5">
       <h2>I Love to Code</h2>
       <p>I've had experience creating my own personal projects. From this blog to my weather app.
         From design to deployment, I can do it all. Check out my Portfolio page for more info!</p>
@@ -64,10 +65,27 @@
 
   <div class="part5">
     <div class="paragraph5">
-      <h2></h2>
+      <h2>I can speak Japanese!</h2>
+      <p>I started learning Japanese when I was in High School.
+        I wanted to learn Japanese and I felt that the classes alone weren't enough.
+        So I registered to a website called <%= link_to "Lang-8", "lang-8.com" %>
+      </p>
+    </div>
 
+    <div class="picture5">
 
     </div>
+
+  </div>
+
+
+  <div class="part6">
+
+    <div class="picture6">
+      <%= render 'layouts/mdimage', locals: {folder: 'static', filename: 'Startup-Edmonton.jpg' } %>
+    </div>
+
+
 
   </div>
 
