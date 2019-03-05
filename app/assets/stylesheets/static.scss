@@ -117,10 +117,12 @@
     display: block;
     width: 42.5%;
     margin: auto;
+    height: 500px;
+    margin-bottom: 10.5rem;
 
   }
 
-  
+
 
   [class*="part"]:nth-child(odd)
   {
@@ -142,6 +144,12 @@
   {
     width: 100%;
     float: right;
+
+  }
+
+  [class*="picture"]:nth-child(2)
+  {
+    margin-left: 2.5rem;
 
   }
 

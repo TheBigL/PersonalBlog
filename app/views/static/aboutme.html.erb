@@ -19,8 +19,9 @@
 
 
     I'm a native of London, Ontario, the "Forest City".
-    Fun Fact: London, Ontario is the birthplace of Ryan Gosling.
-    </p>
+    </p><br>
+
+    <p>Fun Fact: London, Ontario is the birthplace of Ryan Gosling.</p>
   </div>
 
   </div>
@@ -40,15 +41,17 @@
 <div class="row">
   <div class="part3">
 
+    <div class="picture3">
+      <%= render 'layouts/lgimage', locals: {folder: 'static', filename: 'Code.jpg'} %>
+    </div>
+
     <div class="paragraph3 col-12 col-lg-6 order-lg-5">
       <h2>I Love to Code</h2>
       <p>I've had experience creating my own personal projects. From this blog to my weather app.
         From design to deployment, I can do it all. Check out my Portfolio page for more info!</p>
     </div>
 
-    <div class="picture3">
-      <%= render 'layouts/lgimage', locals: {folder: 'static', filename: 'Code.jpg'} %>
-    </div>
+
 
   </div>
 
@@ -67,12 +70,16 @@
 
   </div>
 
+  </div>
+
+  <di
+
   <div class="part5">
     <div class="paragraph5">
       <h2>I can speak Japanese!</h2>
       <p>I started learning Japanese when I was in High School.
         I wanted to learn Japanese and I felt that the classes alone weren't enough.
-        So I registered to a website called <a href="lang-8.com">Lang-8</a>.
+        So I registered to a website called <%= link_to “Lang-8”, “http://www.lang-8.com” %>.
         Since I graduated, I studied on my own and I can even help translated a play from Japanese to English.
         I can even help translate any piece of media you desire (for a price!)
       </p>
@@ -89,6 +96,13 @@
 
     <div class="picture6">
       <%= render 'layouts/mdimage', locals: {folder: 'static', filename: 'Startup-Edmonton.jpg' } %>
+    </div>
+
+    <div class="paragraph6">
+      <h2>I'm active in Startup Edmonton</h2>
+
+      <p>You'll see me occasionally</p>
+
     </div>
 
 
