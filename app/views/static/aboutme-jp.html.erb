@@ -1,0 +1,123 @@
+<% provide(:title, "About Me") %>
+
+
+<div class="container-fluid">
+<div class="aboutme">
+  <h1 class="is-1">About Me</h1>
+</div>
+
+<div class="row">
+  <div class="part1">
+  <div class="picture1 col-12 col-lg-6 order-lg-2">
+      <%= render 'layouts/lgimage', locals: {folder: 'static', filename: 'GradPhoto.jpg'} %>
+  </div>
+
+  <div class="paragraph1 col-12 col-lg-6 order-lg-1">
+    <h2>始まり</h2>
+    <p>ソフト開発者のレナードです。
+
+
+    オンタリオ州のロンドンは出生地です。
+    </p><br>
+
+    <p>Fun Fact: 出生地は俳優のライアン・ゴスリンと同じです。</p>
+  </div>
+
+  </div>
+
+  <div class="part2">
+    <div class="picture2 col-12 col-lg-6 order-lg-4">
+      <%= render 'layouts/lgimage', locals: {folder: 'static', filename:'Me-in-Seattle.jpg'} %>
+    </div>
+  <div class="paragraph2 col-12 col-lg-6 order-lg-3">
+    <h2>旅行が好きです</h2>
+    <p>I've been to London (Ontario), Toronto, Buffalo, Columbus, Calgary, Edmonton, London (UK),
+      New York City, Portland, Seattle, Tokyo, and Vancouver.  </p>
+  </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="part3">
+
+    <div class="picture3">
+      <%= render 'layouts/lgimage', locals: {folder: 'static', filename: 'Code.jpg'} %>
+    </div>
+
+    <div class="paragraph3 col-12 col-lg-6 order-lg-5">
+      <h2>I Love to Code</h2>
+      <p>I've had experience creating my own personal projects. From this blog to my weather app.
+        From design to deployment, I can do it all. Check out my Portfolio page for more info!</p>
+    </div>
+
+
+
+  </div>
+
+
+  <div class="part4">
+      <div class="picture4">
+        <%= render 'layouts/lgimage', locals: {folder: 'static', filename: 'Mario-Leonard.jpg'} %>
+      </div>
+      <div class="paragraph4">
+        <h2>I play a lot of Video Games</h2>
+        <p>For as long as I can remember, I've been playing video games.
+          I'm mostly a Nintendo guy (as my picture with the Mario Statue proves), but I'm open to a lot of kinds of Video Games.
+          I'm currently crazy about Super Smash Bros. Ultimate. My favourite Nintendo Character is Mario. As a kid, I loved being the hero.
+          Mario influenced my love for colour red.
+        </p>
+
+      </div>
+
+  </div>
+
+  </div>
+
+  <div class="row">
+
+  <div class="part5">
+
+
+    <div class="picture5">
+        <%= render 'layouts/mdimage', locals: {folder: 'static', filename: '日本語.png' } %>
+    </div>
+
+
+    <div class="paragraph5">
+      <h2>I can speak Japanese!</h2>
+      <p>I started learning Japanese when I was in High School.
+        I wanted to learn Japanese and I felt that the classes alone weren't enough.
+        So I registered to a website called <%= link_to "Lang-8", "http://lang-8.com", :target => "_blank" %>.
+        Since I graduated, I studied on my own and I can even help translated a play from Japanese to English.
+        I can even help translate any piece of media you desire (for a price!)
+      </p>
+    </div>
+
+
+
+  </div>
+
+
+  <div class="part6">
+
+    <div class="picture6">
+      <%= render 'layouts/mdimage', locals: {folder: 'static', filename: 'Startup-Edmonton.jpg' } %>
+    </div>
+
+    <div class="paragraph6">
+      <h2>I'm active in Startup Edmonton</h2>
+
+      <p>You'll see me occasionally in the Mercer Building as well as Slack.
+      Don't be afraid to give me a shout!</p>
+
+    </div>
+
+    </div>
+
+
+
+  </div>
+
+
+
+</div>
