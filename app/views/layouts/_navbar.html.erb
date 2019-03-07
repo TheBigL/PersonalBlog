@@ -19,6 +19,11 @@ Welcome, <%= current_user.username %>
   <%= link_to 'About Me', static_aboutme_path %>
 </li>
 
+<li class="level-item">
+  <%= link_to '自分について', static_aboutmejp_path %>
+</li>
+
+
 <% if !user_signed_in? %>
 <li class="level-item">
 <%= link_to 'Sign up',  new_user_registration_path %>

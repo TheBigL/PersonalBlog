@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
   resources :projects
   get 'static/aboutme'
-  get 'static/aboutme-jp'
+  get 'static/aboutmejp'
 
 
 
