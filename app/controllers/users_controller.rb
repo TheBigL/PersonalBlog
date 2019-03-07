@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
   def create
     # Create the user from params
-    @user = User.create(user_params)
+    debug @user = User.create(user_params)
     if @user.save
       # Deliver the signup email
       UserMailer.registration_confirmation(@user).deliver
