@@ -64,6 +64,16 @@ Rails.application.configure do
   config.assets.quiet = true
 
   #Development code for Devise. Will change to the actual line in production
+  ActionMailer::Base.smtp_settings = {
+    :address => 'stmp.google.com',
+    :domain => 'mail.google.com',
+    :port => 587,
+    :username => ENV['GMAIL_USERNAME'],
+    :password => ENV['GMAIL_PASSWORD'],
+    :authentication => 'login',
+    :enable_starttls_auto => true
+
+  }
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
