@@ -16,6 +16,10 @@ Welcome, <%= current_user.username %>
 </li>
 
 <li class="level-item">
+<%= link_to 'Projects', '/projects' %>
+</li>
+
+<li class="level-item">
   <%= link_to 'About Me', static_aboutme_path %>
 </li>
 
@@ -51,6 +55,8 @@ Welcome, <%= current_user.username %>
   <%= link_to 'Users List', users_url %>
 </li>
 <% end %>
+
+
 
 
 
