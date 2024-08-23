@@ -1,2 +1,4 @@
-Django==5.1
-psycopg2-binary==psycopg2-binary
+django==5.1
+psycopg2-binary==2.9.9
+pyNaCl==1.5.0
+python-env==1.0.0
