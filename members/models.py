@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User, UserManager, BaseUserManager, AbstractBaseUser
+from django.contrib.auth.models import User, UserManager, BaseUserManager, AbstractBaseUser, PermissionsMixin, CustomUserManager
 from django.db import models
 
 
@@ -39,7 +39,7 @@ def get_profile_image_filepath(self, filename):
     return f'profile_images/{str(self.pk)}/{"profile_image.png"}'
 
 # Create your models here.
-class Member(AbstractBaseUser):
+class Member(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(verbose_name="email", max_length=60, unique=True)
     username = models.CharField(max_length=45, unique=True)
     date_joined = models.DateTimeField(verbose_name="date joined", auto_now_add=True)
@@ -51,6 +51,8 @@ class Member(AbstractBaseUser):
     profile_image = models.ImageField(max_length=255, upload_to='images/pfps/', null=True, blank=True)
     is_contributor = models.BooleanField(default=False)
     hide_email = models.BooleanField(default=True)
+
+    objects = MemberManager()
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
@@ -66,5 +68,15 @@ class Member(AbstractBaseUser):
     
     def has_module_perms(self, app_label):
         return True
+    
+    class Meta:
+        verbose_name = 'Memeber'
+        verbose_name_plural = 'Members'
 
+    
+    def get_full_name(self):
+        return self.name
+    
+    def get_short_name(self):
+        return self.name or self.name.split('@')[0]
     
