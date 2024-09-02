@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User, UserManager, BaseUserManager, AbstractBaseUser, PermissionsMixin, CustomUserManager
+from django.contrib.auth.models import User, UserManager, BaseUserManager, AbstractBaseUser, PermissionsMixin
 from django.db import models
 
 
