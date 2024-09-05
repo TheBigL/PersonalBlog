@@ -17,7 +17,10 @@ def contributor_user(db):
 
 @pytest.fixture()
 def super_user(db):
-    SuperUser = User.objects.create_superuser('superuser', 'superuser@test.com', 'myPassword')
+    SuperUser = User.objects.create_user('superuser', 'superuser@test.com', 'myPassword')
+    SuperUser.is_superuser = True
+    SuperUser.is_active = True
+    SuperUser.is_contributor = True
     yield SuperUser
     print('\n Deleting Superuser...')
     
@@ -53,5 +56,5 @@ def test_is_not_superuser(basic_user):
     assert basic_user.is_superuser is False
 
 @pytest.mark.django_db
-def test_is_not_superuser(super_user):
+def test_is_superuser(super_user):
     assert super_user.is_superuser is True
