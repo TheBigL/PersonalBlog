@@ -96,6 +96,11 @@ DATABASES = {
         'PASSWORD': os.environ.get("POSTGRESQL_DB_PASSWORD"),
         'HOST': os.environ.get("POSTGRESQL_DB_DEV_HOST"),
         'PORT': os.environ.get("POSTGRESQL_DB_PORT"),
+        'TEST': {
+            'NAME': os.environ.get("POSTGRESQL_TEST_DB_NAME"),
+            'USER': os.environ.get("POSTGRESQL_TEST_USER"),
+            'PASSWORD': os.environ.get("POSTGRESQL_TEST_PASSWORD")
+        }
     }
 }
 
