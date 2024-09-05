@@ -19,9 +19,9 @@ def contributor_user(db):
 def super_user(db):
     SuperUser = User.objects.create_superuser('superuser', 'superuser@test.com', 'password')
     yield SuperUser
-    print('\n Deleting Superuser...')
     
 # Basic Tests
+
 #Confirms that a user has been created
 @pytest.mark.django_db
 def test_if_user_exists(basic_user):
@@ -43,14 +43,17 @@ def test_set_check_password_success(basic_user):
 @pytest.mark.django_db
 def test_is_not_contributor_by_default(basic_user):
     assert basic_user.is_contributor is False
+
 # Checks if the User is a contributor
 @pytest.mark.django_db
 def test_is_contributor(contributor_user):
     assert contributor_user.is_contributor is True
+
 # Checks if the user is not a superuser
 @pytest.mark.django_db
 def test_is_not_superuser(basic_user):
     assert basic_user.is_superuser is False
+
 # Checks if the user is a superuser
 @pytest.mark.django_db
 def test_is_superuser(super_user):
