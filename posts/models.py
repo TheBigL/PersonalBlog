@@ -7,7 +7,15 @@ User = get_user_model()
 # Create your models here.
 class Post(models.Model):
     title = models.CharField(verbose_name="post_title", max_length=150)
+    slug = models.SlugField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField(verbose_name="post content")
     date_created = models.DateTimeField(verbose_name="post_date_created", auto_now_add=True)
-    date_updated = models.DateTimeField(default=None, verbose_name="post date updated")
+    date_updated = models.DateTimeField(default=None, verbose_name="post date updated", auto_now=True)
+
+
+def __str__(self):
+    return self.title
+
+def snippet(self):
+    return self.content[:100] + '...'
