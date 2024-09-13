@@ -27,15 +27,15 @@
                           </ul>
 
                           
-                            {% if user.is_authenticated%}
-                            <ul class="nav"></ul>
-                            <li class="nav-item">Log Off</li>
-                            <li class="nav-item">User Information</li>
+                            {% if member.is_authenticated%}
+                            <ul class="nav me-auto"></ul>
+                            <li class="nav-item"><a class="nav-link" href="#">Log Off</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">User Information</a></li>
                             </ul>
                             {% else %}
-                            <ul>
-                              <li class="nav-item">Log Off</li>
-                              <li class="nav-item"></li>
+                            <ul class="nav me-auto">
+                              <li class="nav-item"><a class="nav-link" href="#">Sign Up</a></li>
+                              <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
                             </ul>
                             {% endif%}
 
