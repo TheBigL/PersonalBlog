@@ -5,10 +5,18 @@ Leonard Morrison's blog!
 {% endblock %}
 
 {% block content %}
+<div class="center">
 
+{% if posts.Post.all.count > 0 %}
 {% for x in posts%}
 
 
+
 {% endfor %}
+
+{% else %}
+There are no blog posts at the moment. Check back later to see it.
+{% endif %}
+</div>
 
 {% endblock %}
