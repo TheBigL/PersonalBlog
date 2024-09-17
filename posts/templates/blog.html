@@ -9,7 +9,9 @@
 
 {% if posts.Post.all.count > 0 %}
 {% for x in posts%}
-
+<h2><a href="#">{{x.title}}</a></h2>
+<p>{{x.date_created}} | {{x.date_updated}}</p>
+<p>{{x.body}}</p>
 
 
 {% endfor %}
@@ -17,6 +19,10 @@
 {% else %}
 <p class="text-center">There are no blog posts at the moment. Check back later to see it.</p>
 {% endif %}
+</div>
+
+<div>
+    
 </div>
 
 {% endblock %}

@@ -1,7 +1,7 @@
-from django.urls import path
-from .views import HomeView, PostDetail
+from django.urls import include, re_path
+from . import views
 
 urlpatterns = [
-    path('', HomeView.as_view(), name='home'),
-    path('post/<int:pk>', PostDetail.as_view(), name='post-detail')
+    re_path(r'^$', views.HomeView, name="homeblog"),
+    re_path(r'(?P<slug>)[])', views.PostDetail)
 ]
