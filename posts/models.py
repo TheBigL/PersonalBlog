@@ -19,3 +19,6 @@ def __str__(self):
 
 def snippet(self):
     return self.content[:100] + '...'
+
+
+

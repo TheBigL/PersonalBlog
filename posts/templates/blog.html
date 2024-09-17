@@ -1,7 +1,7 @@
 {% extends  "base.html" %} 
 
 {% block title %}
-<h1>Leonard Morrison's blog!</h1>
+Leonard Morrison's blog!
 {% endblock %}
 
 {% block content %}
@@ -9,7 +9,7 @@
 
 {% if posts.Post.all.count > 0 %}
 {% for x in posts%}
-<h2><a href="#">{{x.title}}</a></h2>
+<h2><a href="{% url 'detail slug=x.slug'%}">{{x.title}}</a></h2>
 <p>{{x.date_created}} | {{x.date_updated}}</p>
 <p>{{x.body}}</p>
 
