@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %} Create a Blog Post! {% endblock %}
+{% block content %} 
+
+{% if user.is_authenticated && user.is_contributor%}
+        <h1>Create Post</h1>
+        <br/><br/>
+
+
+        <div class="form-group">
+            <form method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button class="btn btn-secondary">Post</button>
+                </form>
+        </div>
+
+{% else %}
+
+<p>Sorry, but you're not a contributor and thus cannot write a blog post.</p>
+
+{% endif %}
+
+{% endblock %}
