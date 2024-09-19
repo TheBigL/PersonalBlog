@@ -10,5 +10,6 @@ def PostDetail(request, slug):
     post = Post.objects.get(slug=slug)
     return render(request, 'postdetail.html', {'post':post})
 
-
+def AddPost(request):
+    return render(request, 'addpost.html')
 
