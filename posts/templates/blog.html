@@ -19,6 +19,14 @@ Leonard Morrison's blog!
 {% else %}
 <p class="text-center">There are no blog posts at the moment. Check back later to see it.</p>
 {% endif %}
+
+{% if user.is_authenticated() && user.is_contributor %}
+<button type="button" class="btn btn-success">Create Post</button>
+
+
+
+{% endif %}
+
 </div>
 
 <div>
