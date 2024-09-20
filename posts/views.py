@@ -1,15 +1,12 @@
-from django.shortcuts import render
-from .models import Post
+from django.views.generic import ListView, GenericView, DetailView
+from models import Post
 # Create your views here.
-def HomeView(request):
-    posts = Post.objects.all().order_by('date_created')
-    return render(request, 'blog.html', {'posts': posts})
+
+class PostListView(ListView):
+    model = Post
     
 
-def PostDetail(request, slug):
-    post = Post.objects.get(slug=slug)
-    return render(request, 'postdetail.html', {'post':post})
+class AboutView(GenericView):
+    template_name = "about.html"
 
-def AddPost(request):
-    return render(request, 'addpost.html')
 

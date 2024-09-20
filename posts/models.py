@@ -12,7 +12,9 @@ class Post(models.Model):
     content = models.TextField(verbose_name="post content",)
     date_created = models.DateTimeField(verbose_name="post date created", auto_now_add=True)
     date_updated = models.DateTimeField(verbose_name="post date updated", auto_now=True)
-
+    
+    class Meta:
+        ordering = ["-date_created"]
 
 def __str__(self):
     return self.title
