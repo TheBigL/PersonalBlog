@@ -1,9 +1,18 @@
-from django.views.generic import ListView, GenericView, DetailView
+from django.views.generic import ListView, GenericView, DetailView, CreateView
 from models import Post
 # Create your views here.
 
 class PostListView(ListView):
     model = Post
+    template_name = 'blog.html'
+
+class PostDetailView(DetailView):
+    model = Post
+    template_name = 'postdetail.html'
+
+class AddPostViw(CreateView):
+    model = Post
+    template_name = 'addpost.html'
     
 
 class AboutView(GenericView):
