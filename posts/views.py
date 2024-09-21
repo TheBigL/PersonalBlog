@@ -1,4 +1,4 @@
-from django.views.generic import ListView, GenericView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, GenericView, DetailView, CreateView, UpdateView, DeleteView
 from models import Post
 # Create your views here.
 
