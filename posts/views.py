@@ -10,7 +10,7 @@ class PostDetailView(DetailView):
     model = Post
     template_name = 'postdetail.html'
 
-class AddPostViw(CreateView):
+class AddPostView(CreateView):
     model = Post
     template_name = 'addpost.html'
     
