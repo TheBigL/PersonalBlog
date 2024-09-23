@@ -1,11 +1,11 @@
 from django.urls import re_path
-from .views import AboutView, AddPostView, PostDetailView, PostListView, PostEditView
+from .views import AddPostView, PostDetailView, PostListView, PostEditView
 
 urlpatterns = [
-    re_path(r'^$', PostListView.as_view, name="homeblog"),
-    re_path(r'about', AboutView.as_view, name="About"),
-    re_path(r'post/<int:pk>', PostDetailView.as_view),
-    re_path(r'add_post/', AddPostView.as_view, name="Add Post"),
-    re_path(r'post/edit/<int:pk>', PostEditView.as_view, name="Edit Post")
+    re_path(r'^$', PostListView.as_view()),
+    re_path(r'post/<int:pk>', PostDetailView.as_view()),
+    re_path(r'add_post/', AddPostView.as_view()),
+    re_path(r'post/edit/<int:pk>', PostEditView.as_view())
+    
     
 ]

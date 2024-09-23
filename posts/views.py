@@ -1,5 +1,6 @@
 from django.views.generic import ListView, View, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post
+from django.http import HttpResponse
 # Create your views here.
 
 class PostListView(ListView):
@@ -17,6 +18,7 @@ class AddPostView(CreateView):
 
 class AboutView(View):
     template_name = "about.html"
+    
 
 class PostEditView(UpdateView):
     model = Post
