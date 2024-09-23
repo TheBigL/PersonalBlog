@@ -19,6 +19,8 @@ class AboutView(GenericView):
     template_name = "about.html"
 
 class PostEditView(UpdateView):
+    model = Post
     template_name = "editpost.html"
+    field = ['title', 'content']
 
 

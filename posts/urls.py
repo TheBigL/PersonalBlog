@@ -1,5 +1,5 @@
 from django.urls import include, re_path
-from views import AboutView, AddPostView, CreateView, DetailView, PostDetailView, PostListView, PostEditView
+from views import AboutView, AddPostView, PostDetailView, PostListView, PostEditView
 
 urlpatterns = [
     re_path(r'^$', PostListView.as_view, name="homeblog"),
