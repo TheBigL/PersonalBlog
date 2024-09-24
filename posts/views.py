@@ -17,7 +17,7 @@ class AddPostView(CreateView):
     
 
 class AboutView(View):
-    template_name = "about.html"
+    template_name = "aboutme.html"
     
 
 class PostEditView(UpdateView):
