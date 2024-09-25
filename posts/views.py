@@ -1,6 +1,7 @@
-from django.views.generic import ListView, View, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views import View
 from .models import Post
-from django.http import HttpResponse
+
 # Create your views here.
 
 class PostListView(ListView):
