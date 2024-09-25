@@ -1,5 +1,4 @@
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from django.views import View
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from .models import Post
 
 # Create your views here.
@@ -17,7 +16,7 @@ class AddPostView(CreateView):
     template_name = 'addpost.html'
     
 
-class AboutView(View):
+class AboutView(TemplateView):
     template_name = "aboutme.html"
     
 
