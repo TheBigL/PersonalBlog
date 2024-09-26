@@ -8,12 +8,7 @@ fake = Faker()
 # Create your tests here.
 User = get_user_model()
 
-class MemberFactory(factory.django.DjangoModelFactory):
-    class Meta:
-        model = User
 
-    username = fake.text(20)
-    email = fake.email()
 
 # Basic User to test permission
 @pytest.fixture()
