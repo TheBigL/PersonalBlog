@@ -1,12 +1,24 @@
 import pytest
+import factory
 from django.contrib.auth import get_user_model
+from faker import Faker
+
+fake = Faker()
 
 # Create your tests here.
 User = get_user_model()
+
+class MemberFactory(factory.django.DjangoModelFactory):
+    class Meta:
+        model = User
+
+    username = fake.text(20)
+    email = fake.email()
+
 # Basic User to test permission
 @pytest.fixture()
 def basic_user(db):
-    user = User.objects.create_user('user@test.com', 'test')
+    user = User.objects.create_user(fake.email(), 'test')
     yield user
 
 @pytest.fixture()
