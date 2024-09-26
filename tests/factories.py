@@ -1,11 +1,15 @@
 import factory
 from faker import Faker
+from django.contrib.auth import get_user_model
+from posts.models import Post
+fake = Faker()
+User = get_user_model()
 
 class MemberFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = User
 
-    username = fake.text(20)
+    username = fake.name()
     email = fake.email()
 
 class PostFactory(factory.django.DjangoModelFactory):

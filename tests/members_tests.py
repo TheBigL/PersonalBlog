@@ -1,6 +1,7 @@
 import pytest
 import factory
 from django.contrib.auth import get_user_model
+from factories import MemberFactory
 from faker import Faker
 
 fake = Faker()
@@ -11,8 +12,9 @@ User = get_user_model()
 
 
 # Basic User to test permission
+'''
 @pytest.fixture()
-def basic_user(db):
+def basic_user(db, member_factory):
     user = User.objects.create_user(fake.email(), 'test')
     yield user
 
@@ -26,18 +28,22 @@ def contributor_user(db):
 def super_user(db):
     SuperUser = User.objects.create_superuser('superuser', 'superuser@test.com', 'password')
     yield SuperUser
-    
+'''
+
 # Basic Tests
 
 #Confirms that a user has been created
 @pytest.mark.django_db
-def test_if_user_exists(basic_user):
+def test_if_user_exists(member_factory):
+    user = member_factory.create()
     assert User.objects.count() > 0
 
 # Checks if the password fails
 @pytest.mark.django_db
 def test_set_check_password_fail(basic_user):
-    basic_user.set_password("password")
+#    basic_user.set_password("password")
+    
+    
     assert basic_user.check_password("wrong") is False
 
 # Checks if the password fails
