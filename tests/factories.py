@@ -10,9 +10,12 @@ class MemberFactory(factory.django.DjangoModelFactory):
         model = User
         
 
-    username = fake.name()
-    email = fake.email()
-    password ='password'
+    username = factory.Faker('user_name')
+    email = factory.Faker('email')
+    password = 'password'
+    is_active = True
+    is_superuser = False
+    is_contributor = False
 
 class PostFactory(factory.django.DjangoModelFactory):
     class Meta:
