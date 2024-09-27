@@ -30,3 +30,5 @@ def reg_cannot_post(db):
 '''    
 
 # Post Tests
+
+#Disallows user to 

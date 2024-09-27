@@ -70,6 +70,9 @@ class Member(AbstractBaseUser, PermissionsMixin):
     def has_module_perms(self, app_label):
         return True
     
+    def is_contributor_or_superuser(user):
+        return user.is_contributor or user.is_superuser
+    
     class Meta:
         verbose_name = 'Memeber'
         verbose_name_plural = 'Members'
