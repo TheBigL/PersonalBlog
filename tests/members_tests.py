@@ -30,6 +30,16 @@ def super_user(db):
     yield SuperUser
 '''
 
+@pytest.mark.parameterize(
+        "email, username, password, is_superuser, is_contributor",
+        [
+            ('email@test.ca', 'testuser', 'password', False, False),
+            ('contributor@test.ca', 'testuser', 'password', False, True),
+            ('superuser@test.ca', 'testuser', 'password', True, True),
+
+        ] 
+)
+
 # Basic Tests
 
 #Confirms that a user has been created
@@ -40,8 +50,10 @@ def test_if_user_exists(member_factory):
 
 # Checks if the password fails
 @pytest.mark.django_db
-def test_set_check_password_fail(basic_user):
+def test_set_check_password_fail(member_factory):
 #    basic_user.set_password("password")
+    user = member_factory.create()
+    
     
     
     assert basic_user.check_password("wrong") is False

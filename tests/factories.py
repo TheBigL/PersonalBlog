@@ -8,9 +8,11 @@ User = get_user_model()
 class MemberFactory(factory.django.DjangoModelFactory):
     class Meta:
         model = User
+        
 
     username = fake.name()
     email = fake.email()
+    password ='password'
 
 class PostFactory(factory.django.DjangoModelFactory):
     class Meta:
