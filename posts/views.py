@@ -1,5 +1,6 @@
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from .models import Post
+from django.contrib.auth.decorators import login_required, permission_required
 
 # Create your views here.
 
@@ -24,5 +25,9 @@ class PostEditView(UpdateView):
     model = Post
     template_name = "editpost.html"
     field = ['title', 'content']
+
+
+@login_required
+@permission_required('')
 
 
