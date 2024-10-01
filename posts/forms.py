@@ -10,6 +10,7 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ('title', 'content')
 
-
+'''
     def save(self, commit=True, user=None):
-        if user.is
+        if user.is_con
+'''         
