@@ -1,6 +1,8 @@
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from .models import Post
-from django.contrib.auth.decorators import login_required, permission_required
+from .forms import PostForm
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 # Create your views here.
 
@@ -13,8 +15,11 @@ class PostDetailView(DetailView):
     template_name = 'postdetail.html'
 
 class AddPostView(CreateView):
-    model = Post
+    login_url = 'members/login.html'
+    form = PostForm
+    success_url = '/'
     template_name = 'addpost.html'
+    success_message = "Your post has been created!"
     
 
 class AboutView(TemplateView):
@@ -27,7 +32,6 @@ class PostEditView(UpdateView):
     field = ['title', 'content']
 
 
-@login_required
-@permission_required('')
+
 
 

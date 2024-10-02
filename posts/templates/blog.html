@@ -20,12 +20,12 @@ Leonard Morrison's blog!
 <p class="text-center">There are no blog posts at the moment. Check back later to see it.</p>
 {% endif %}
 
-{% if member.is_authenticated and member.is_contributor %}
-<button type="button" class="btn btn-success">Create Post</button>
+
+<button type="button" class="btn btn-success" href="{% url 'add_post' %}">Create Post</button>
 
 
 
-{% endif %}
+
 
 </div>
 
