@@ -5,6 +5,11 @@
 {% endblock %}
 
 {% block content %}
-    <h1></h1>
+    <h1>Register User</h1>
+
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Register</button>
+
 
 {% endblock  %}
