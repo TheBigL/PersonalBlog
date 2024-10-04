@@ -9,4 +9,4 @@ class MemberCreationForm(UserCreationForm):
 
     class Meta:
         model = Member
-        fields = [ 'username', 'email', 'password', 'password2' ]
+        fields = [ 'username', 'email', 'password1', 'password2' ]
