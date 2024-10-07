@@ -19,7 +19,8 @@ class Post(models.Model):
 def __str__(self):
     return self.title
 
-
+def is_author_contributor(self):
+    return self.author.is_contributor
 
 def snippet(self):
     return self.content[:100] + '...'

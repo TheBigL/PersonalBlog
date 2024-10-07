@@ -77,3 +77,4 @@ def test_is_not_superuser(db):
 def test_is_superuser(db):
     user = MemberFactory(is_superuser = True, is_contributor = True)
     assert user.is_superuser is True
+

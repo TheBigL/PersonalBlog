@@ -8,7 +8,8 @@ from faker import Faker
 # Create your tests here.
 User = get_user_model()
 fake = Faker()
-user = MemberFactory(is_contributor = True, is_superuser = True)
+
+
 
 
 #Fixture
@@ -31,4 +32,8 @@ def reg_cannot_post(db):
 
 # Post Tests
 
-#Disallows user to 
+#Disallows user to create a post if they're not a contributor
+@pytest.mark.django_db
+def is_not_contributor(db):
+    nonauthorizedUser = MemberFactory(is_contributor = False)
+    assert nonauthorizedUser.is_contributor is False

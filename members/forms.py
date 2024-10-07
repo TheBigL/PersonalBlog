@@ -10,3 +10,12 @@ class MemberCreationForm(UserCreationForm):
     class Meta:
         model = Member
         fields = [ 'username', 'email', 'password1', 'password2' ]
+
+    def save(self, commit=True):
+        member = super().save(commit=False)
+        member.set_password(self.cleaned_data["password1"])
+
+        if commit:
+            member.save()
+
+        return member
