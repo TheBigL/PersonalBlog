@@ -20,7 +20,8 @@ def __str__(self):
     return self.title
 
 def is_author_contributor(self):
-    return self.author.is_contributor
+    if self.author.is_contributor:
+        self.save()
 
 def snippet(self):
     return self.content[:100] + '...'
