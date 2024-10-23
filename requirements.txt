@@ -3,7 +3,7 @@ beautifulsoup4==4.12.3
 cffi==1.17.0
 coverage==7.6.1
 defusedxml==0.7.1
-Django==5.1
+Django==5.1.2
 django-browser-reload==1.15.0
 django-tailwind==3.8.0
 Faker==30.0.0
@@ -20,7 +20,8 @@ python-env==1.0.0
 pytz==2024.1
 pytest==8.3.2
 pytest-django==4.9.0
-py-test-factoryboy==
+pytest-asyncio==0.24.0
+pytest-factoryboy==2.7.0
 six==1.16.0
 soupsieve==2.6
 sqlparse==0.5.1

@@ -1,6 +1,7 @@
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from .models import Post
 from .forms import PostForm
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
@@ -15,7 +16,8 @@ class PostDetailView(DetailView):
     model = Post
     template_name = 'postdetail.html'
 
-class AddPostView(CreateView):
+
+class AddPostView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     login_url = 'members/login.html'
     form = PostForm
     success_url = '/'

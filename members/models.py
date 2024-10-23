@@ -81,3 +81,6 @@ class Member(AbstractBaseUser, PermissionsMixin):
     def get_full_name(self):
         return self.name
     
+    def has_post_permissions(self):
+        return self.has_perms(("posts.add_post", "posts.update_post", "posts.remove_post"))
+    

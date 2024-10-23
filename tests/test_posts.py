@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 from posts.models import Post
 from factories import MemberFactory, PostFactory
 from faker import Faker
+from django.contrib.auth.models import Permission
 
 # Create your tests here.
 User = get_user_model()
@@ -31,9 +32,10 @@ def reg_cannot_post(db):
 '''    
 
 # Post Tests
-
+class TestPosts:
 #Disallows user to create a post if they're not a contributor
-@pytest.mark.django_db
-def is_not_contributor(db):
-    nonauthorizedUser = MemberFactory(is_contributor = False)
-    assert nonauthorizedUser.is_contributor is False
+    @pytest.mark.django_db
+    def is_not_contributor(db):
+        nonauthorizedUser = MemberFactory()
+        can_post = nonauthorizedUser.has_perms("post.add_post")
+        assert can_post is False
