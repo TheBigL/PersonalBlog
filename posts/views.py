@@ -2,7 +2,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Post
 from .forms import PostForm
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
-
+from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
@@ -16,7 +16,8 @@ class PostDetailView(DetailView):
     model = Post
     template_name = 'postdetail.html'
 
-
+@login_required
+@permission_required('post.add_post', raise_exception=True)
 class AddPostView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     login_url = 'members/login.html'
     form = PostForm
@@ -28,11 +29,13 @@ class AddPostView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
 class AboutView(TemplateView):
     template_name = "aboutme.html"
     
-
-class PostEditView(UpdateView):
+@login_required
+@permission_required('post.update_post', raise_exception=True)
+class PostEditView(UpdateView, PermissionRequiredMixin):
     model = Post
     template_name = "editpost.html"
     field = ['title', 'content']
+
 
 
 

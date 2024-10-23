@@ -35,7 +35,11 @@ def reg_cannot_post(db):
 class TestPosts:
 #Disallows user to create a post if they're not a contributor
     @pytest.mark.django_db
-    def is_not_contributor(db):
+    def test_is_not_contributor(db):
         nonauthorizedUser = MemberFactory()
-        can_post = nonauthorizedUser.has_perms("post.add_post")
+        can_post = nonauthorizedUser.has_post_permissions()
         assert can_post is False
+
+    @pytest.mark.django_db
+    def test_can_not_post_if_title_is_empty(db):
+        
