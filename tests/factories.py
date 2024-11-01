@@ -1,7 +1,9 @@
 import factory
 from faker import Faker
+from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth import get_user_model
 from posts.models import Post
+from members.models import Member
 fake = Faker()
 User = get_user_model()
 
@@ -15,7 +17,13 @@ class MemberFactory(factory.django.DjangoModelFactory):
     password = 'password'
     is_active = True
     is_superuser = False
-    is_contributor = False
+    
+    @classmethod
+    def has_post_permissions(self):
+        self.has_post_permissions()
+
+    
+
 
 class PostFactory(factory.django.DjangoModelFactory):
     class Meta:

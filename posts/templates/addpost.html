@@ -2,7 +2,7 @@
 {% block title %} Create a Blog Post! {% endblock %}
 {% block content %} 
 
-{% if user.is_authenticated && user.is_contributor%}
+
         <h1>Create Post</h1>
         <br/><br/>
 
@@ -15,10 +15,10 @@
                 </form>
         </div>
 
-{% else %}
+
 
 <p>Sorry, but you're not a contributor and thus cannot write a blog post.</p>
 
-{% endif %}
+
 
 {% endblock %}

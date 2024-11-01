@@ -73,14 +73,19 @@ class Member(AbstractBaseUser, PermissionsMixin):
     def is_contributor_or_superuser(user):
         return user.is_contributor or user.is_superuser
     
-    class Meta:
-        verbose_name = 'Memeber'
-        verbose_name_plural = 'Members'
-
-    
     def get_full_name(self):
         return self.name
     
     def has_post_permissions(self):
-        return self.has_perms(("posts.add_post", "posts.update_post", "posts.remove_post"))
+            return self.has_perms(("posts.add_post", "posts.update_post", "posts.remove_post"))
+    
+    
+    
+    
+    class Meta:
+        verbose_name = 'Memeber'
+        verbose_name_plural = 'Members'
+
+        
+    
     

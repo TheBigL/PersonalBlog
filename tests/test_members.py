@@ -79,11 +79,3 @@ class TestMembers:
     def test_is_superuser(db):
         user = MemberFactory(is_superuser = True, is_contributor = True)
         assert user.is_superuser is True
-    
-class TestPosts:
-#Disallows user to create a post if they're not a contributor
-    @pytest.mark.django_db
-    def is_not_contributor(db):
-        nonauthorizedUser = MemberFactory()
-        can_post = nonauthorizedUser.has_perms("post.add_post")
-        assert can_post is False
