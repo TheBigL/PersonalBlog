@@ -19,15 +19,6 @@ class PostDetailView(DetailView):
     model = Post
     template_name = 'postdetail.html'
 
-'''
-class AddPostView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
-    login_url = 'members/login.html'
-    form = PostForm
-    success_url = '/'
-    template_name = 'addpost.html'
-    success_message = "Your post has been created!"
-''' 
-
 class AboutView(TemplateView):
     template_name = "aboutme.html"
     
@@ -79,5 +70,7 @@ def edit_post(request):
         )
     else:
         pass
+
+    return render(request, template)
 
 
