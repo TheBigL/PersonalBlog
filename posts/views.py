@@ -61,4 +61,23 @@ def create_post(request):
 
     return render(request, template)
 
+def edit_post(request):
+    form_class = PostForm
+    template = 'editpost.html'
+
+    if request.method == "PATCH":
+        form = form_class(request.PATCH)
+        Title = request.PATCH.GET("title")
+        Content = request.PATCH.GET("content")
+        User_id = request.PATCH.GET("author")
+
+    if request.user.has_perm("posts.update_post"):
+        Post.objects.update(
+            title=Title,
+            content=Content,
+            author=User.objects.get(pk=User_id)
+        )
+    else:
+        pass
+
 
