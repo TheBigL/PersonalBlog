@@ -15,7 +15,7 @@ User = get_user_model()
 
 
 # Basic User to test permission
-
+'''
 @pytest.fixture()
 def basic_user(db, member_factory):
     user = User.objects.create_user(fake.email(), 'test')
@@ -31,7 +31,7 @@ def contributor_user(db):
 def super_user(db):
     SuperUser = User.objects.create_superuser('superuser', 'superuser@test.com', 'password')
     yield SuperUser
-
+'''
 
 
 # Basic Tests
@@ -75,7 +75,7 @@ class TestMembers:
         assert user.is_superuser is False
     
     # Checks if the user is a superuser
-    @pytest.mark.django_db(scope="session")
+    @pytest.mark.django_db
     def test_is_superuser(db):
         user = MemberFactory(is_superuser = True, is_contributor = True)
         assert user.is_superuser is True
