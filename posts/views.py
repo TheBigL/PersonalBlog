@@ -62,7 +62,7 @@ def edit_post(request):
         Content = request.PATCH.GET("content")
         User_id = request.PATCH.GET("author")
 
-    if request.user.has_perm("posts.update_post"):
+    if request.user.has_perm("posts.update_post") and (User_id == User.pk):
         Post.objects.update(
             title=Title,
             content=Content,
