@@ -37,8 +37,9 @@ ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = "members.Member"
 
-LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "/"
+LOGIN_URL = 'posts:homepage'
+LOGIN_REDIRECT_URL = 'posts:post_list'
+LOGOUT_REDIRECT_URL = 'posts:post_list'
 
 # Application definition
 
@@ -144,6 +145,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

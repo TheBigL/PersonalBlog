@@ -14,26 +14,6 @@ User = get_user_model()
 
 
 
-# Basic User to test permission
-'''
-@pytest.fixture()
-def basic_user(db, member_factory):
-    user = User.objects.create_user(fake.email(), 'test')
-    yield user
-
-@pytest.fixture()
-def contributor_user(db):
-    contributor = User.objects.create_user('contributor@test.com', 'contributor')
-    contributor.is_contributor = True
-    yield contributor
-
-@pytest.fixture()
-def super_user(db):
-    SuperUser = User.objects.create_superuser('superuser', 'superuser@test.com', 'password')
-    yield SuperUser
-'''
-
-
 # Basic Tests
 class TestMembers:
 #Confirms that a user has been created

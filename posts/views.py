@@ -1,19 +1,29 @@
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from .models import Post
 from .forms import PostForm
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy, reverse
+from django.contrib import messages
 from django.contrib.auth import get_user_model
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
-from django.contrib.auth.decorators import login_required, permission_required
-from django.contrib.messages.views import SuccessMessageMixin
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.decorators import login_required
+from members.decorators import allowed_users
+from .decorators import is_author_or_admin
+from django.core.exceptions import PermissionDenied
+from django.utils.decorators import method_decorator
 
 User = get_user_model()
 # Create your views here.
 
+# Example: A basic list view if needed for redirects
+class HomepageView(TemplateView):
+    template_name = 'homepage.html'  # Example template name
+
+
 class PostListView(ListView):
     model = Post
-    template_name = 'blog.html'
+    template_name = 'blog.html' # Example template name
+    context_object_name = 'posts'
+
 
 class PostDetailView(DetailView):
     model = Post
@@ -23,54 +33,62 @@ class AboutView(TemplateView):
     template_name = "aboutme.html"
     
 
-class PostEditView(UpdateView, PermissionRequiredMixin):
+
+
+
+@method_decorator(login_required, name='dispatch')
+@method_decorator(allowed_users(allowed_roles=['Admin', 'Contributor']), name='dispatch')
+class AddPostView(CreateView):
     model = Post
-    template_name = "editpost.html"
-    field = ['title', 'content']
-
-
-
-def create_post(request):
     form_class = PostForm
-    template = 'addpost.html'
+    template_name = 'posts/addpost.html'
+    success_url = reverse_lazy('posts:post_list')
 
+   
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
+
+
+
+
+    def handle_no_permission(self):
+        raise PermissionDenied("You do not have permission to add a post.")
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        messages.success(self.request, "Post created successfully!")
+        return super().form_valid(form)
     
-    if request.method == "POST":
-        form = form_class(request.POST)
-        title = request.POST.get("title")
-        content = request.POST.get("content")
-        user_id = request.POST.get("author")
 
-        if request.user.has_perm("posts.add_post"):
-            Post.objects.create(
-                title=title,
-                content=content,
-                author=User.objects.get(pk=user_id)
-            )
-        else:
-            pass
 
-    return render(request, template)
-
-def edit_post(request):
+@method_decorator(login_required, name='dispatch')
+@method_decorator(allowed_users(allowed_roles=['Admin', 'Contributor']), name='dispatch')
+@method_decorator(is_author_or_admin, name='dispatch')
+class EditPostView(UpdateView):
+    model = Post
     form_class = PostForm
-    template = 'editpost.html'
+    template_name = 'posts/edit_post.html'
+    permission_required = 'posts.change_post'
 
-    if request.method == "PATCH":
-        form = form_class(request.PATCH)
-        Title = request.PATCH.GET("title")
-        Content = request.PATCH.GET("content")
-        User_id = request.PATCH.GET("author")
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.filter(author = self.request.user)
 
-    if request.user.has_perm("posts.update_post") and (User_id == User.pk):
-        Post.objects.update(
-            title=Title,
-            content=Content,
-            author=User.objects.get(pk=User_id)
-        )
-    else:
-        pass
+    def get_success_url(self):
+        return reverse('posts:post_list')
+    
+        
+    
+@method_decorator(login_required, name='dispatch')
+@method_decorator(allowed_users(allowed_roles=['Admin', 'Contributor']), name='dispatch')
+@method_decorator(is_author_or_admin, name='dispatch')
+class DeletePostView(DeleteView):
+    model = Post
+    template_name = 'posts/delete_post.html'
+    success_url = reverse_lazy('posts:post_list')
 
-    return render(request, template)
+            
+        
 
 

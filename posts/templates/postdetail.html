@@ -1,6 +1,29 @@
 {% extends  "base.html" %} 
 
 {% block title %}
-{% post.title %}
+{{ post.title }} - Leonard Morrison's blog!
+{% endblock %}
+
+{% block content %}
+<h1>{{ post.title }}</h1> 
+<p>{{ post.date_created }} | {{ post.date_updated }}</p>
+<hr>
+<small> Post by: {{ post.author.username }} on {{post.date_created}} | Post Updated: {{post.date_updated}}</small>
+
+<p>{{ post.body }}</p>
+
+{% if user.is_authenticated %}
+    <div class="btn-group" role="group">
+        <a href="{% url 'edit_post' post.pk %}" class="btn btn-primary">Edit Post</a>
+        <form action="{% url 'delete_post' post.pk %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete Post</button>
+        </form>
+    </div>
+{% endif %}
+
+{% endblock %}
+
+{% block extra_js %}
 {% endblock %}
 

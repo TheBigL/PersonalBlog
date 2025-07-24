@@ -11,7 +11,10 @@ Leonard Morrison's blog!
 {% for x in posts%}
 <h2><a href="{% url 'detail slug=x.slug'%}">{{x.title}}</a></h2>
 <p>{{x.date_created}} | {{x.date_updated}}</p>
-<p>{{x.body}}</p>
+<p>{{x.body}}
+    <button type="button" class="btn btn-primary" href="{% url 'edit_post' pk=x.pk %}">Edit Post</button>
+    <button type="button" class="btn btn-danger" href="{% url 'delete_post' pk=x.pk %}">Delete Post</button>
+</p>
 
 
 {% endfor %}
