@@ -13,13 +13,13 @@ from .models import Member
 
 # Create your views here.
 class RegisterUser(CreateView):
-    form = MemberCreationForm
+    model = Member
+    form_class = MemberCreationForm
     success_url = reverse_lazy('login')
-    template_name = 'members/registeruser.html'
+    template_name = 'registeruser.html'
     success_message = "You have successfully registered!"
 
     def post(self, request, *args, **kwargs):
-        pass
         form = MemberCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
