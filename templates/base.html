@@ -33,12 +33,12 @@
                         <div class="py-2 bg-body-tertiary border-bottom">
                           <ul class="nav me-auto">
                             <li class="nav-item"><a class="nav-link" href="/">Homepage</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/post/aboutme/">About Me</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'posts:about_me' %}">About Me</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Portfolio</a></li>
                           </ul>
 
                           
-                            {% if member.is_authenticated%}
+                            {% if user.is_authenticated%}
                             <ul class="nav me-auto"></ul>
                             <li class="nav-item"><a class="nav-link" href="#">Log Off</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">User Information</a></li>
@@ -62,7 +62,7 @@
             {% block content %}
             {% endblock %}
             <footer class="py-3 my-4">
-              <p class="text-center">© 2024 Leonard Morrison</p>
+              <p class="text-center">© 2025 Leonard Morrison</p>
             </footer>
         </div>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

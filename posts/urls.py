@@ -8,7 +8,7 @@ urlpatterns = [
     re_path(r'^posts/post_detail/(?P<pk>\d+)/$', PostDetailView.as_view(), name="post_detail"),
     re_path(r'^posts/edit_post/(?P<pk>\d+)/$', EditPostView.as_view(), name="edit_post"),
     re_path(r'^posts/delete_post/(?P<pk>\d+)/$', DeletePostView.as_view(), name="delete_post"),
-    re_path(r'^posts/aboutme/', AboutView.as_view(), name="about_us"),
+    re_path(r'^posts/aboutme/', AboutView.as_view(), name="about_me"),
     re_path(r'^homepage/$', HomepageView.as_view(), name="homepage")
     
 ]
