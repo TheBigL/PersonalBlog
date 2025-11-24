@@ -20,4 +20,5 @@ class TestPortfolioPermissions:
 
     @pytest.mark.django_db
     def test_create_portoflio():
+        add_portfolio_url = reverse()
         return None
