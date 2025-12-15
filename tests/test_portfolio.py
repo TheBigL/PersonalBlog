@@ -61,3 +61,52 @@ class TestPortfolioPermissions:
 
 
         
+    @pytest.mark.django_db
+    def test_cannot_create_portfolio_unless_admin():
+        add_portfolio_url = reverse("portfolio:add_portfolio")
+
+        response = test_client.get(add_portfolio_url)
+        assert response.status_code == 302  # Redirect to login
+        
+        logged_in = test_client.login(email=test_user.email, password="pass123")
+        assert logged_in
+
+        post_data = {"title": "My Portfolio", "description": "Portfolio Description", "link": "http://example.com"}
+        response = test_client.post(add_portfolio_url, data=post_data)
+        assert response.status_code == 403  # Forbidden
+
+        assert Portfolio.objects.count() == 0
+
+    @pytest.mark.django_db
+    def test_edit_portfolio():
+        portfolio = {
+            "name":"Initial Portfolio",
+            "description":"Initial Description",
+            "link":"http://initial.com"
+        }
+
+        edit_portfolio_url = reverse("portfolio:edit_portfolio", kwargs={"pk": portfolio.pk})
+        portfolio_detail_url = reverse("portfolio:portfolio_detail", kwargs={"pk": portfolio.pk})
+
+        response = test_client.get(edit_portfolio_url)
+        assert response.status_code == 302  # Redirect to login
+
+        logged_in = test_client.login(email=test_user.email, password="pass123")
+        assert logged_in
+
+        response = test_client.get(edit_portfolio_url)
+        assert response.status_code == 200  # Access granted
+
+        updated_data = {
+            "name": "Updated Portfolio",
+            "description": "Updated Description",
+            "link": "http://updated.com"
+        }
+        response = test_client.post(edit_portfolio_url, data=updated_data)
+        assert response.status_code == 302  # Redirect after successful edit
+        assert response.url == portfolio_detail_url
+
+        portfolio.refresh_from_db()
+        assert portfolio.name == "Updated Portfolio"
+        assert portfolio.description == "Updated Description"
+        assert portfolio.link == "http://updated.com"
