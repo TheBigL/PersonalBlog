@@ -46,6 +46,7 @@ LOGOUT_REDIRECT_URL = 'posts:post_list'
 INSTALLED_APPS = [
     'members',
     'posts',
+    'portfolio',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
