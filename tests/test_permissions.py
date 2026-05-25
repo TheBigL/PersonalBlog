@@ -1,5 +1,5 @@
 import pytest
-from django.urls import reverse, NoReverseMatch
+from django.urls import reverse
 from django.test import Client
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Group, Permission

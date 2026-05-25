@@ -1,9 +1,8 @@
 import pytest
-from django.urls import reverse, NoReverseMatch
+from django.urls import reverse
 from django.test import Client
 from django.contrib.auth import get_user_model
-from django.contrib.auth.models import Group, Permission
-from django.contrib.contenttypes.models import ContentType
+from django.contrib.auth.models import Group
 from portfolio.models import Portfolio
 from members.models import Member
 
@@ -34,7 +33,7 @@ def test_user(db):
 class TestPortfolioPermissions:
 
     @pytest.mark.django_db
-    def test_create_portoflio():
+    def test_create_portoflio(self, test_client, test_user):
         add_portfolio_url = reverse("portfolio:add_portfolio")
         portfolio_list_url = reverse("portfolio:portfolio_list")
 
@@ -62,7 +61,7 @@ class TestPortfolioPermissions:
 
         
     @pytest.mark.django_db
-    def test_cannot_create_portfolio_unless_admin():
+    def test_cannot_create_portfolio_unless_admin(self, test_client, test_user):
         add_portfolio_url = reverse("portfolio:add_portfolio")
 
         response = test_client.get(add_portfolio_url)
@@ -78,7 +77,7 @@ class TestPortfolioPermissions:
         assert Portfolio.objects.count() == 0
 
     @pytest.mark.django_db
-    def test_edit_portfolio():
+    def test_edit_portfolio(self, test_client, test_user):
         portfolio = {
             "name":"Initial Portfolio",
             "description":"Initial Description",
