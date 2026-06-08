@@ -1,0 +1,39 @@
+{% extends  "base.html" %} 
+
+{% block title %}
+Leonard Morrison's blog!
+{% endblock %}
+
+{% block content %}
+<div class="center">
+
+{% if portfolio.Portfolio.all.count > 0 %}
+{% for x in portfolio.Portfolio.all %}
+<h2><a href="{% url 'detail slug=x.slug'%}">{{x.title}}</a></h2>
+<p>{{x.date_created}} | {{x.date_updated}}</p>
+<p>{{x.body}}
+    <button type="button" class="btn btn-primary" href="{% url 'portfolio:edit_portfolio' pk=x.pk %}">Edit Portfolio</button>
+    <button type="button" class="btn btn-danger" href="{% url 'portfolio:delete_portfolio' pk=x.pk %}">Delete Portfolio</button>
+</p>
+
+
+{% endfor %}
+
+{% else %}
+<p class="text-center">There are no blog posts at the moment. Check back later to see it.</p>
+{% endif %}
+
+
+<button type="button" class="btn btn-success" href="{% url 'portfolio:add_portfolio' %}">Create Post</button>
+
+
+
+
+
+</div>
+
+<div>
+    
+</div>
+
+{% endblock %}

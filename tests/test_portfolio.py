@@ -43,27 +43,34 @@ def admin_group(db):
     group.permissions.add(add_permissions)
     return group
 
+@pytest.fixture
+def change_portfolio_permission(db):
+    content_type = ContentType.objects.get_for_model(Portfolio)
+    permission, _ = Permission.objects.get_or_create(
+        content_type = content_type,
+        codename = "change_portfolio",
+    )
+    return permission
 
-
-class TestPortfolioPermissions:
+class TestPortfolio:
 
     @pytest.mark.django_db
-    def test_create_portoflio(self, test_client, test_user):
+    def test_create_portfolio(self, test_client, test_user):
         add_portfolio_url = reverse("portfolio:add_portfolio")
         portfolio_list_url = reverse("portfolio:portfolio_list")
 
-        response = test_client.get(add_portfolio_url)
-        assert response.status_code == 302  # Redirect to login
+        response_not_logged_in = test_client.get(add_portfolio_url)
+        assert response_not_logged_in.status_code == 302  # Redirect to login
         
         logged_in = test_client.login(email=test_user.email, password="pass123")
         assert logged_in
 
         post_data = {"title": "My Portfolio", "description": "Portfolio Description", "link": "http://example.com"}
-        response = test_client.post(add_portfolio_url, data=post_data)
-        assert response.status_code == 302  # Redirect after successful creation
-        assert response.url == portfolio_list_url
+        response_no_perm = test_client.post(add_portfolio_url, data=post_data)
+        assert response_no_perm.status_code == 403  # Redirect after successful creation
+        assert Portfolio.objects.count() == 0
 
-        admin_group = Group.objects.get_or_create(name="Admin")
+        admin_group, _ = Group.objects.get_or_create(name="Admin")
         test_user.groups.add(admin_group)
         test_user.save()
 
