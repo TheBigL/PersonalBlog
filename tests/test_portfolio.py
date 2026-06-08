@@ -2,7 +2,8 @@ import pytest
 from django.urls import reverse
 from django.test import Client
 from django.contrib.auth import get_user_model
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import Group, Permission
+from django.contrib.contenttypes.models import ContentType
 from portfolio.models import Portfolio
 from members.models import Member
 
@@ -29,6 +30,20 @@ def test_user(db):
       # Set the user as a contributor
     user.save()  # Save the user to apply changes
     return user
+
+@pytest.fixture
+def admin_group(db):
+    group, _ = Group.objects.get_or_create(name="Admin")
+    content_type = ContentType.objects.get_for_model(Portfolio)
+    add_permissions, _ = Permission.objects.get_or_create(
+        codename='add_portfolio',
+        name='Can add portfolio',
+        content_type=content_type
+    )
+    group.permissions.add(add_permissions)
+    return group
+
+
 
 class TestPortfolioPermissions:
 
