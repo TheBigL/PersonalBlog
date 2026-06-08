@@ -1,4 +1,5 @@
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from members.decorators import allowed_users
 from .models import Portfolio
 from .forms import PortfolioForm
 from django.shortcuts import render, redirect
@@ -19,6 +20,7 @@ class PortfolioDetailView(DetailView):
     template_name = 'portfoliodetail.html'
 
 @method_decorator(login_required, name='dispatch')
+@method_decorator(allowed_users(allowed_roles=['Admin']), name="dispatch")
 class AddPortfolioView(CreateView):
     model = Portfolio
     form_class = PortfolioForm
