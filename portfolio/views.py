@@ -13,19 +13,19 @@ from django.utils.decorators import method_decorator
 class PortfolioListView(ListView):
     model = Portfolio
     template_name = 'portfolio.html'
-    context_object_name = 'portfolios'
+    context_object_name = 'portfolio'
 
 class PortfolioDetailView(DetailView):
     model = Portfolio
-    template_name = 'portfoliodetail.html'
+    template_name = 'portfolio_detail.html'
 
 @method_decorator(login_required, name='dispatch')
 @method_decorator(allowed_users(allowed_roles=['Admin']), name="dispatch")
 class AddPortfolioView(CreateView):
     model = Portfolio
     form_class = PortfolioForm
-    template_name = 'portfolio/addportfolio.html'
-    success_url = '/portfolio/'
+    template_name = 'add_portfolio.html'
+    success_url = reverse_lazy('portfolio:portfolio_list')
 
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
@@ -42,21 +42,21 @@ class AddPortfolioView(CreateView):
 @method_decorator(login_required, name='dispatch')
 class EditPortfolioView(UpdateView):
     model = Portfolio
-    fields = ['name', 'description', 'img', 'link']
-    template_name = 'portfolio/edit_portfolio.html'
-    success_url = '/portfolio/'
+    form_class = PortfolioForm
+    template_name = 'portfolio_edit.html'
+    success_url = reverse_lazy('portfolio:portfolio_list')
 
     def get_queryset(self):
         query_set = super().get_queryset()
         return query_set.filter(created_by=self.request.user)
     
     def get_success_url(self):
-        return reverse('portfolio:portfolio_detail', kwargs={'pk': self.object.pk})
+        return reverse('portfolio:portfolio_detail', kwargs={'pk': self.args.get('pk')})
 
 @method_decorator(login_required, name='dispatch')
 class DeletePortfolioView(DeleteView):
     model = Portfolio
-    template_name = 'portfolio/delete_portfolio.html'
+    template_name = 'portfolio_delete.html'
     success_url = reverse_lazy('portfolio:portfolio_list')
 
     

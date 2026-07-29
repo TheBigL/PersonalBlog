@@ -1,0 +1,28 @@
+{% extends  "base.html" %} 
+
+{% block title %}
+{{ portfolio.name }} - Leonard Morrison's blog!
+{% endblock %}
+
+{% block content %}
+<h1>{{ portfolio.name }}</h1> 
+<p>{{ portfolio.date_created }} | {{ portfolio.date_updated }}</p>
+<hr>
+
+
+<p>{{ portfolio.description }}</p>
+
+{% if user.is_authenticated %}
+    <div class="btn-group" role="group">
+        <a href="{% url 'edit_portfolio' portfolio.pk %}" class="btn btn-primary">Edit Portfolio</a>
+        <form action="{% url 'delete_portfolio' portfolio.pk %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete Portfolio</button>
+        </form>
+    </div>
+{% endif %}
+
+{% endblock %}
+
+{% block extra_js %}
+{% endblock %}
