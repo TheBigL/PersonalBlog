@@ -122,10 +122,6 @@ class TestPortfolio:
         
         updated_data = {"name": "Updated Portfolio", "description": "Updated Description", "link": "updated.ca"}
 
-        response = test_client.post(edit_portfolio_url, updated_data)
-        assert response.status_code == 200  # Access granted
-
-        
         response = test_client.post(edit_portfolio_url, data=updated_data)
         assert response.status_code == 302  # Redirect after successful edit
         

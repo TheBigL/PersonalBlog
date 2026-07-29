@@ -47,16 +47,24 @@ class EditPortfolioView(UpdateView):
     success_url = reverse_lazy('portfolio:portfolio_list')
 
     def get_queryset(self):
-        query_set = super().get_queryset()
-        return query_set.filter(created_by=self.request.user)
+        queryset = super().get_queryset()
+        if self.request.user.is_superuser or self.request.user.groups.filter(name='Admin').exists():
+            return queryset
+        return queryset.filter(created_by=self.request.user) | queryset.filter(created_by__isnull=True)
     
     def get_success_url(self):
-        return reverse('portfolio:portfolio_detail', kwargs={'pk': self.args.get('pk')})
+        return reverse('portfolio:portfolio_detail', kwargs={'pk': self.object.pk})
 
 @method_decorator(login_required, name='dispatch')
 class DeletePortfolioView(DeleteView):
     model = Portfolio
     template_name = 'portfolio_delete.html'
     success_url = reverse_lazy('portfolio:portfolio_list')
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        if self.request.user.is_superuser or self.request.user.groups.filter(name='Admin').exists():
+            return queryset
+        return queryset.filter(created_by=self.request.user) | queryset.filter(created_by__isnull=True)
 
     
