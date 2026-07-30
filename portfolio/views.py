@@ -40,6 +40,7 @@ class AddPortfolioView(CreateView):
     
 
 @method_decorator(login_required, name='dispatch')
+@method_decorator(allowed_users(allowed_roles=['Admin']), name="dispatch")
 class EditPortfolioView(UpdateView):
     model = Portfolio
     form_class = PortfolioForm
@@ -56,6 +57,7 @@ class EditPortfolioView(UpdateView):
         return reverse('portfolio:portfolio_detail', kwargs={'pk': self.object.pk})
 
 @method_decorator(login_required, name='dispatch')
+@method_decorator(allowed_users(allowed_roles=['Admin']), name="dispatch")
 class DeletePortfolioView(DeleteView):
     model = Portfolio
     template_name = 'portfolio_delete.html'
@@ -67,4 +69,4 @@ class DeletePortfolioView(DeleteView):
             return queryset
         return queryset.filter(created_by=self.request.user) | queryset.filter(created_by__isnull=True)
 
-    
+   

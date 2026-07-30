@@ -120,6 +120,10 @@ class TestPortfolio:
         logged_in = test_client.login(email=test_user.email, password="pass123")
         assert logged_in
         
+        admin_group, _ = Group.objects.get_or_create(name="Admin")
+        test_user.groups.add(admin_group)
+        test_user.save()
+        
         updated_data = {"name": "Updated Portfolio", "description": "Updated Description", "link": "updated.ca"}
 
         response = test_client.post(edit_portfolio_url, data=updated_data)
@@ -130,4 +134,19 @@ class TestPortfolio:
         assert initial_port.name == updated_data["name"]
         
         
+    @pytest.mark.django_db
+    def test_cannot_delete_unless_admin(self, test_client, test_user):
+        initial_port = Portfolio.objects.create(name="Initial Portfolio", description="Initial Description", link="intial.ca")
+
+        delete_portfolio_url = reverse("portfolio:delete_portfolio", kwargs={"pk": initial_port.pk})
+
+        logged_in = test_client.login(email=test_user.email, password="pass123")
+        assert logged_in
         
+        
+
+        response = test_client.post(delete_portfolio_url)
+        assert response.status_code == 403  # Forbidden
+        
+        initial_port.refresh_from_db()
+        assert Portfolio.objects.filter(pk=initial_port.pk).exists()  
