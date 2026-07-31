@@ -149,4 +149,23 @@ class TestPortfolio:
         assert response.status_code == 403  # Forbidden
         
         initial_port.refresh_from_db()
-        assert Portfolio.objects.filter(pk=initial_port.pk).exists()  
+        assert Portfolio.objects.filter(pk=initial_port.pk).exists()
+        
+        
+    @pytest.mark.django_db
+    def test_delete_portfolio(self, test_client, test_user):
+        initial_port = Portfolio.objects.create(name="Initial Portfolio", description="Initial Description", link="intial.ca")
+         
+        delete_portfolio_url = reverse("portfolio:delete_portfolio", kwargs={"pk": initial_port.pk})
+        
+        logged_in = test_client.login(email=test_user.email, password="pass123")
+        assert logged_in
+        
+        admin_group, _ = Group.objects.get_or_create(name="Admin")
+        test_user.groups.add(admin_group)
+        test_user.save()
+        
+        response = test_client.post(delete_portfolio_url)
+        assert response.status_code == 302
+        assert not Portfolio.objects.filter(pk=initial_port.pk).exists()
+        
