@@ -54,7 +54,7 @@ class EditPortfolioView(UpdateView):
         return queryset.filter(created_by=self.request.user) | queryset.filter(created_by__isnull=True)
     
     def get_success_url(self):
-        return reverse('portfolio:portfolio_detail', kwargs={'pk': self.object.pk})
+        return reverse('portfolio:portfolio_detail', kwargs={'pk': self.kwargs.pk})
 
 @method_decorator(login_required, name='dispatch')
 @method_decorator(allowed_users(allowed_roles=['Admin']), name="dispatch")
