@@ -15,10 +15,8 @@
 {% if user.is_authenticated %}
     <div class="btn-group" role="group">
         <a href="{% url 'edit_portfolio' portfolio.pk %}" class="btn btn-primary">Edit Portfolio</a>
-        <form action="{% url 'delete_portfolio' portfolio.pk %}" method="post" style="display:inline;">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-danger">Delete Portfolio</button>
-        </form>
+        <a href="{% url 'delete_portfolio' portfolio.pk %}" class="btn btn-danger">Delete Portfolio</a>
+        
     </div>
 {% endif %}
 
