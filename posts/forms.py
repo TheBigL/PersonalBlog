@@ -11,6 +11,18 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ('title', 'content')
+        
+class EditForm(forms.ModelForm):
+    title = forms.CharField(label="Title", max_length=150)
+    content = forms.CharField(widget=forms.Textarea)
+    
+    User = get_user_model()
+    
+    class Meta:
+        model = Post
+        fields = ('title', 'content')
+    
+    
 
 '''
     def save(self, commit=True, user=None):
