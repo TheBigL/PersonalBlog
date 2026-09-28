@@ -22,6 +22,15 @@ class EditForm(forms.ModelForm):
         model = Post
         fields = ('title', 'content')
     
+class DeleteForm(forms.ModelForm):
+    title = forms.CharField(label="Title", max_length=150)
+    content = forms.CharField(widget=forms.Textarea)
+    
+    User = get_user_model()
+    
+    class Meta:
+        model = Post
+        fields = ('title', 'content')
     
 
 '''
