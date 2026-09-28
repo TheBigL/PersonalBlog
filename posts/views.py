@@ -1,6 +1,6 @@
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from .models import Post
-from .forms import PostForm
+from .forms import PostForm, EditForm
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
 from django.contrib import messages
@@ -67,7 +67,7 @@ class AddPostView(CreateView):
 @method_decorator(is_author_or_admin, name='dispatch')
 class EditPostView(UpdateView):
     model = Post
-    form_class = PostForm
+    form_class = EditForm
     template_name = 'posts/edit_post.html'
     permission_required = 'posts.change_post'
 
@@ -86,7 +86,8 @@ class EditPostView(UpdateView):
 class DeletePostView(DeleteView):
     model = Post
     template_name = 'posts/delete_post.html'
-    success_url = reverse_lazy('posts:post_list')
+    
+    
     
 
             
