@@ -207,8 +207,10 @@ class TestPermissions:
         logged_in = test_client.login(email=test_user.email, password="pass123")
         assert logged_in
 
-        response = test_client.post(delete_url)  
+        response = test_client.delete(delete_url)
+        print(response.status_code)  
         assert response.status_code in (200, 302)
+        
         assert Post.objects.count() == 0
 
     @pytest.mark.django_db
