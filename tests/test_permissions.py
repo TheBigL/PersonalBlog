@@ -207,7 +207,7 @@ class TestPermissions:
         logged_in = test_client.login(email=test_user.email, password="pass123")
         assert logged_in
 
-        response = test_client.post(delete_url)  # Use follow=True to follow the redirect
+        response = test_client.post(delete_url)  
         assert response.status_code in (200, 302)
         assert Post.objects.count() == 0
 
