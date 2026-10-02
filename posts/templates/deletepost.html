@@ -10,8 +10,8 @@
         <div class="form-group">
             <form method="POST">
                 {% csrf_token %}
-                {{ form.as_p }}
-                <a href="{}"<button class="btn btn-secondary">Post</button>
+                <strong>You really want to delete this post?</strong>
+                <button class="btn-btn secondary">Delete</button>
                 </form>
         </div>
 {% endblock %}
