@@ -179,7 +179,7 @@ class TestPermissions:
         other_post = Post.objects.create(title="Other's Post", content="Content", author=other_user)
         edit_url = reverse("posts:edit_post", kwargs={"pk": other_post.pk})
 
-                #Create the Contributor group
+        #Create the Contributor group
         contributor_group, _ = Group.objects.get_or_create(name="Contributor")
         test_user.groups.add(contributor_group)
         test_user.save()
